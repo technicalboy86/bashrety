@@ -41,10 +41,14 @@ body > aside {
 	color: #999;
 	font-size: 1.4em;
 }
+body > aside#left-sidebar > header > nav > input {height:30px; font-size:0.7em; margin-top: 20px; background: url('../../img/search.png'); background-position:right;  background-size: 10%; background-repeat: no-repeat; padding-left:5px; border-radius:5% ! important;}
+body > aside#left-sidebar > article > ul {width:90%; margin-top:20px; } 
+body > aside#left-sidebar > article > ul > li { border-bottom:1px solid #000; height:50px !important;}
+body > aside#left-sidebar > article > ul > li > div.tag { border:1px solid #c5a179; background:#ff4e00; border-radius:20%; color:#000; height:20px; width:20px; text-align:center; margin-top:5px;}
 
-body > aside > article > ul {width:90%; margin-top:20px; } 
-body > aside > article > ul > li { border-bottom:1px solid #000; height:50px !important;}
-body > aside > article > ul > li > div.tag { border:1px solid #c5a179; background:#ff4e00; border-radius:20%; color:#000; height:20px; width:20px; text-align:center; margin-top:5px;}
+body > aside#right-sidebar > header {font-size:0.7em; height:100px; padding-top:50px;}
+body > aside#right-sidebar > article > div.form {width:80%; margin-top:20px; margin-left:20px;} 
+body > aside#right-sidebar > article > div.form > button { background:#eee; margin:10px; width:40%; height:40px; float:left; font-size:0.7em;}
 
 body > aside > footer {height:150px;}
 body > aside > footer >  div { font-size:1em;color:#999; margin-left:20px; clear:both; height:30px;}
@@ -66,8 +70,7 @@ section .list li.color {
   box-shadow: inset 4px 0 #f4f4f4;
 }
 
-body > aside > header > nav > div.form { width:80%; height:0px;margin-top: -3px; }
-body > aside > header > nav > div.form > fieldset {width:100%;height:0px; }
+
 .left_menu_search {margin-top: 10px; width:100%; height:50px;  background-color: #EEE ! important;  border-radius:20%; border:1px solid #666;}
 #map { 
 	width: 100%;
@@ -116,17 +119,14 @@ body > section#main > article > div > div > input[type="text"] { width:85%; bord
 body > section > article > div > div.splash.line {text-align:center; width:100%; border-bottom:1px solid #EEE;}
 body > section > article > div > div.splash.subtitle { margin-top:10px; text-align:center; font-size:1.2em;color:#c84624; }
 body > section > article > div > div.splash.subtext { margin-top:10px; text-align:center;font-size:12px;color:#000; }
-
 body > section > article > div > a > img.splash.connect { margin-top:10px; width:90%; }
 body > section > article > div > a > img.splash.connect:active { margin-top:10px; width:91%; }
 
 body > section#gender > article > div.gender-title { height:18%; text-align:center; background:#fff;}
 body > section#gender > article > div.gender-title > div.gender-title-text { font-size:1.5em;color:#ff4e00; padding-top:45px; font-weight:bold;}
-
 body > section#gender > article > div.male-rect { height:33%; text-align:center; background: rgba(70, 177, 236, 0.6); border-top:2px solid #333;}
 body > section#gender > article > div > img { border-radius:50%; height: 70%; padding:5px; background:#327aaf; margin:20px;}
 body > section#gender > article > div > div.male-text { font-size:1.5em;color:#fff; font-weight:bold; margin-right:60px; margin-top:70px;}
-
 body > section#gender > article > div > div.female-text { font-size:1.5em;color:#fff; font-weight:bold; margin-left:50px; margin-top:70px;}
 body > section#gender > article > div.female-rect { height:33%; text-align:center; background: rgba(242, 112, 223, 0.6); border-top:2px solid #333;}
 
@@ -167,14 +167,56 @@ body > section#freckle_section > article > div.freckle_list > ul > li > div.frec
 body > section#freckle_section > article > div.freckle_list > ul > li > div > img { height:30px; margin-top:20px; margin-right:80px; display:none; }
 body > section#freckle_section > article > div.freckle_list > ul > li > div > div {font-size:1.5em;color:#000; padding-top:20px; font-weight:bold; margin-left:35px;} 
 
-body > section#products_section > article > div.freckle_face { height:25%; width:100%; background-image:url('../../img/skincolor/skin_face_background.png'); background-repeat:no-repeat; background-size:100%; text-align:center;}
-body > section#products_section > article > div.freckle_face > img { border-radius:50%; height: 85%; padding:5px; background:#d24d93; margin:10px; }
-body > section#products_section > article > div.products_text_rect { height:18%; text-align:center;}
-body > section#products_section > article > div.products_text_rect > div.products_text { font-size:1.5em;color:#ff4e00; padding-top:35px; font-weight:bold;}
-body > section#products_section > article > div.products_list > ul { list-style-type: none; padding:0px; margin:0px; }
-body > section#products_section > article > div.products_list > ul > li {height:85px; padding:0px; margin:0px; border-top:1px solid #000; border-bottom:1px solid #000;}
-body > section#products_section > article > div.products_list > ul > li > img { margin:10px; }
-body > section#products_section > article > div.products_list > ul > li > div {color:#000; height:80px; overflow:hidden; white-space:normal; text-overflow:ellipsis; width:100px; } 
+body > section#results_section > article > div.freckle_face { height:25%; width:100%; background-image:url('../../img/skincolor/skin_face_background.png'); background-repeat:no-repeat; background-size:100%; text-align:center;}
+body > section#results_section > article > div.freckle_face > img { border-radius:50%; height: 85%; padding:5px; background:#d24d93; margin:10px; }
+body > section#results_section > article > div.results_text_rect { height:18%; text-align:center;}
+body > section#results_section > article > div.results_text_rect > div.results_text { font-size:1.5em;color:#ff4e00; padding-top:35px; font-weight:bold;}
+body > section#results_section > article > div.results_list > ul { list-style-type: none; padding:0px; margin:0px; height:220px;}
+body > section#results_section > article > div.results_list > ul > li {height:85px; padding:0px; margin:0px; border-top:1px solid #000; border-bottom:1px solid #000;}
+body > section#results_section > article > div.results_list > ul > li > img { margin:10px; }
+body > section#results_section > article > div.results_list > ul > li > div {color:#000; height:80px; overflow:hidden; white-space:normal; text-overflow:ellipsis; width:100px; } 
+
+body > section#products_list_section > article > div.products_list_rect { height:50px; text-align:center;background-image:url('../../img/product_title_bg.png'); background-repeat:no-repeat; background-size:100%; }
+body > section#products_list_section > article > div.products_list_rect > div.products_list_text { padding-top:10px; font-size:1.5em;color:#fff; font-weight:bold;}
+body > section#products_list_section > article > div.products_search_rect { height:40px; text-align:center; border-bottom:1px solid #000;}
+body > section#products_list_section > article > div.products_search_rect > div > fieldset{ height:40px; text-align:center; border-bottom:1px solid #000;}
+body > section#products_list_section > article > div.products_list > ul { list-style-type: none; padding:0px; margin:0px; height:370px;}
+body > section#products_list_section > article > div.products_list > ul > div.product_item {width:50%; float:left; background:#fff;}
+body > section#products_list_section > article > div.products_list > ul > div.product_item:active {background-image:url('../../img/selected_product.png'); background-repeat:no-repeat; background-size:100%; }
+body > section#products_list_section > article > div.products_list > ul > div.product_item > img.p_new_mask {width:20px; height:20px; float:left;}
+body > section#products_list_section > article > div.products_list > ul > div.product_item > div.p_new_mask {width:20px; height:20px; float:left;}
+body > section#products_list_section > article > div.products_list > ul > div.product_item > img.p_product_image {width:50%; height:100px; float:left; padding-left:30px;}
+body > section#products_list_section > article > div.products_list > ul > div.product_item > div.product_detail_title {overflow:hidden;text-overflow:ellipsis;width:90%; font-size:1em;color:#000; margin-left:10px; white-space:nowrap;}
+body > section#products_list_section > article > div.products_list > ul > div.product_item > div.product_detail_text {overflow:hidden;text-overflow:ellipsis;width:90%; font-size:0.8em;color:#000;  margin-left:10px; white-space:nowrap;}
+
+body > section#products_detail_section > article > div.products_detail_rect { height:50px; text-align:center;background-image:url('../../img/product_title_bg.png'); background-repeat:no-repeat; background-size:100%; }
+body > section#products_detail_section > article > div.products_detail_rect > div.products_detail_text { padding-top:10px; font-size:1.5em;color:#fff; font-weight:bold;}
+body > section#products_detail_section > article > div.products_detail > img.product_image { width:100px; height:130px; float:left; padding-left:30px; padding-top:10px;}
+body > section#products_detail_section > article > div.products_detail > div.product_detail_title {font-size:1.2em;color:#000; padding-left:120px; padding-top:50px;}
+body > section#products_detail_section > article > div.products_detail > div.product_detail_text { font-size:1em;color:#000;  margin-left:10px; float:left; width:90%; }
+
+body > section#article_list_section > article > div.article_list_rect { height:50px; text-align:center;background-image:url('../../img/article_title_bg.png'); background-repeat:no-repeat; background-size:100%; }
+body > section#article_list_section > article > div.article_list_rect > div.article_list_text { padding-top:10px; font-size:1.5em;color:#fff; font-weight:bold;}
+body > section#article_list_section > article > div.article_search_rect { height:40px; text-align:center; border-bottom:1px solid #000;}
+body > section#article_list_section > article > div.article_search_rect > div > fieldset{ height:40px; text-align:center; border-bottom:1px solid #000;}
+body > section#article_list_section > article > div.article_list > ul { list-style-type: none; padding:0px; margin:0px; height:370px;}
+body > section#article_list_section > article > div.article_list > ul > li {height:80px; padding:0px; margin:0px;}
+body > section#article_list_section > article > div.article_list > ul > li:active {background-image:url('../../img/article_title_bg.png');}
+body > section#article_list_section > article > div.article_list > ul > li > img.p_new_mask {width:20px; height:20px; float:left;}
+body > section#article_list_section > article > div.article_list > ul > li > div.p_new_mask {width:20px; height:20px; float:left;}
+body > section#article_list_section > article > div.article_list > ul > li > img.p_article_image {width:70px; height:70px; float:left; padding-left:-10px; padding-top:10px;}
+body > section#article_list_section > article > div.article_list > ul > li > div {float:right; width:65%;}
+body > section#article_list_section > article > div.article_list > ul > li > div > div.article_title_text {overflow:hidden;text-overflow:ellipsis;width:90%; font-size:1.2em;font-weight:bold;color:#000; margin-top:3px; white-space:nowrap;}
+body > section#article_list_section > article > div.article_list > ul > li > div > div.article_detail_text {height:50px; font-size:0.8em;color:#000; overflow:hidden;text-overflow:ellipsis;width:90%;}
+
+body > section#article_detail_section > article > div.article_detail_rect { height:50px; text-align:center;background-image:url('../../img/article_title_bg.png'); background-repeat:no-repeat; background-size:100%; }
+body > section#article_detail_section > article > div.article_detail_rect > div.article_detail_text { padding-top:10px; font-size:1.5em;color:#fff; font-weight:bold;}
+body > section#article_detail_section > article > div.article_detail > img.article_image { width:100px; height:80px; float:left; padding-left:30px; padding-top:10px;}
+body > section#article_detail_section > article > div.article_detail > div.article_detail_title {font-size:1.2em;color:#000; padding-left:120px; padding-top:20px;}
+body > section#article_detail_section > article > div.article_detail > div.article_detail_text { font-size:1em;color:#000;  margin-left:10px; float:left; width:90%; }
+
+body > section#doctors_list_section > article > div.doctors_list_rect { height:50px; text-align:center;background-image:url('../../img/doctor_title_bg.png'); background-repeat:no-repeat; background-size:100%; }
+body > section#doctors_list_section > article > div.doctors_list_rect > div.doctors_list_text { padding-top:10px; font-size:1.5em;color:#fff; font-weight:bold;}
 
 .console {
     background: #292f34;
@@ -183,7 +225,7 @@ body > section#products_section > article > div.products_list > ul > li > div {c
     text-align: center;
 }
 
- li {
+li {
     padding-top: 128px !important;
     padding-bottom: 128px !important;
 }

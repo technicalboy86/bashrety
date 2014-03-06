@@ -21,7 +21,7 @@ var App = (function(lng, undefined) {
 })(Lungo);
 
 App.config = {
-	gender : null,
+	gender : "A",
     skin_color:null,
     acne:null,
     freckle:null
@@ -33,6 +33,53 @@ Lungo.ready(function() {
 
 Lungo.Events.init({
 	'load section#gender1': App.sectionTrigger,
+    
+    'load section#doctors_list_section':function () {
+    	var clientPosition = new google.maps.LatLng(43.04, 129.7841619731);
+        var myOptions = {
+        	center: clientPosition,
+            zoom: 14,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            callback: function () { }
+        };
+                  
+        map_element = document.getElementById("map_canvas");
+        map = new google.maps.Map(map_element, myOptions);
+                  
+        var mapwidth = $(window).width();
+        var mapheight = $(window).height()-100;
+        $("#map_canvas").height(mapheight);
+        $("#map_canvas").width(mapwidth);
+        google.maps.event.trigger(map, 'resize');
+                 
+        currentLocationMarker = new google.maps.Marker({
+        	position: clientPosition,
+            animation: google.maps.Animation.DROP,
+            title:"Name : Jin Jin \n Street : Tumen",
+        });
+                  
+        currentLocationMarker1 = new google.maps.Marker({
+            position: new google.maps.LatLng(43.02, 129.7841619731),
+            animation: google.maps.Animation.DROP,
+            title:"Restaurant!"
+        });
+                  
+        var infowindow = new google.maps.InfoWindow();
+                  
+        google.maps.event.addListener(currentLocationMarker, 'click', function() {
+              //infowindow.setContent(this.title);
+              //infowindow.open(map, this);
+              Lungo.Notification.html('<h2>Name</h2><br><h4>Jin Jin</h4><br><h2>Details</h2><h4>aaaaaaaaa</h4>', "Close");
+        });
+                  
+        google.maps.event.addListener(currentLocationMarker1, 'click', function() {
+               infowindow.setContent(this.title);
+               infowindow.open(map, this);
+        });
+                  
+        currentLocationMarker.setMap(map);
+        currentLocationMarker1.setMap(map);                  
+    },
     
     'tap #gender_next_btn': function() {
         if(App.config.gender == null)
@@ -56,7 +103,7 @@ Lungo.Events.init({
         if(App.config.freckle == null)
 	        Lungo.Notification.success("please choose one.", "","", 2);
         else
-			Lungo.Router.section("products_section");
+			Lungo.Router.section("results_section");
     },
     'tap .male_image': function() {
 	    App.config.gender = "male";

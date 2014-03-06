@@ -58,6 +58,8 @@
 		<script src="package/lungo/lungo.js"></script>
         <script src="js/retina-1.1.0.min.js"></script>
         <script src="js/jquery-1.10.1.min.js"></script>
+        <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+        <script type="text/javascript" charset="utf-8" src="js/jquery.ui.map.js"></script>
   		<script type="text/javascript" src="js/index.js"></script>
 		<script>
 			Lungo.init({
@@ -65,14 +67,17 @@
 				version: '0.0.1',
 				resources: [
                     'static/asides/left-sidebar.html',
+                    'static/asides/right.html',
 					'static/sections/gender.html',
                     'static/sections/skin.html',
                     'static/sections/acne.html',
                     'static/sections/freckle.html',
-                    'static/sections/product_list.html',
+                    'static/sections/results.html',
                     'static/sections/product_detail.html',
+                    'static/sections/product_list.html',
                     'static/sections/article_list.html',
                     'static/sections/article_detail.html',
+                    'static/sections/doctors_list.html',
 				],
 				history: false
 			});

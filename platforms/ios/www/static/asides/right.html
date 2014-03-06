@@ -1,10 +1,33 @@
-<aside id="right" data-transition="right">
-    <header data-title="Example of Aside"></header>
+<aside id="right-sidebar" data-transition="right">
+    <header data-title="Filter your search"></header>
     <article class="list active">
-        <ul>
-            <li data-view-aside="right" data-icon="user">
-                <strong>Tap to close</strong>
-            </li>
-        </ul>
+       
+            <div class="form" >
+                <label>Docter Name</label>
+                <input type="text" placeholder="Enter name" class="border" />
+                
+                <label>Clinic Name</label>
+                <label class="select border">
+                    <select>
+                        <option value="1">All</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </label>
+                
+                <label>Area</label>
+                <label class="select border">
+                    <select>
+                        <option value="1">All</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </label>
+                
+                <button class="anchor accept margin-bottom" data-view-aside="right-sidebar" data-label="Clear"></button>
+                <button class="anchor cancel margin-bottom" data-view-aside="right-sidebar" data-label="Done"></button>
+                
+            </div>
+        
     </article>
 </aside>
