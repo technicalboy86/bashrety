@@ -35,6 +35,7 @@ body > section > header {
 	-o-box-shadow: inset 0 -1px #b2b2b2, 0 1px rgba(0,0,0,0.1);
 	box-shadow: inset 0 -1px #b2b2b2, 0 1px rgba(0,0,0,0.1);
 }
+body > section ::-webkit-input-placeholder { color:#444; padding-left:-5px; }
 
 body > aside {
 	background-color: #333;
@@ -49,6 +50,10 @@ body > aside#left-sidebar > article > ul > li > div.tag { border:1px solid #c5a1
 body > aside#right-sidebar > header {font-size:0.7em; height:100px; padding-top:50px;}
 body > aside#right-sidebar > article > div.form {width:80%; margin-top:20px; margin-left:20px;} 
 body > aside#right-sidebar > article > div.form > button { background:#eee; margin:10px; width:40%; height:40px; float:left; font-size:0.7em;}
+
+body > aside#events_right-sidebar > header {font-size:0.7em; height:100px; padding-top:50px;}
+body > aside#events_right-sidebar > article > div.form {width:80%; margin-top:20px; margin-left:20px;} 
+body > aside#events_right-sidebar > article > div.form > button { background:#eee; margin:10px; width:40%; height:40px; float:left; font-size:0.7em;}
 
 body > aside > footer {height:150px;}
 body > aside > footer >  div { font-size:1em;color:#999; margin-left:20px; clear:both; height:30px;}
@@ -84,11 +89,6 @@ section .list li.color {
 	background-repeat: no-repeat;
 }
 
-
-/*
- * End from lungo theme.
- */
-
 body > aside > header > nav > img { height:19px; }
 body > aside > header > nav.on-left { margin-left: .7em; }
 body > aside > header > nav.on-right { margin-right: .7em; }
@@ -114,24 +114,33 @@ body > section > article { background-image:url('../../img/bg2.png'); background
 
 body > section > article > div.splash { text-align:center; margin-top:20px; }
 body > section > article > div > img.splash.logo { margin-left:-20px; width:40%; }
-body > section#main > article > div > .login-form {width:100%; text-align:center; margin-top:20px;}
-body > section#main > article > div > div > input[type="text"] { width:85%; border:1px solid #999; height:50px;}
+body > section#main > article > div > .login-form {width:100%; text-align:center;  }
+body > section#main > article > div > div > input[type="text"] { width:85%; border:1px solid #999; height:30px; margin:3px; border-radius:5%;}
+body > section#main > article > div > div > label { width:85%; border:1px solid #999; height:32px; color:#EEE; margin:3px; }
+
+body > section#main > article > div > div > select { height:30px;}
+body > section#main > article > div > div > select > option[default] { color:#EEE}
 body > section > article > div > div.splash.line {text-align:center; width:100%; border-bottom:1px solid #EEE;}
 body > section > article > div > div.splash.subtitle { margin-top:10px; text-align:center; font-size:1.2em;color:#c84624; }
-body > section > article > div > div.splash.subtext { margin-top:10px; text-align:center;font-size:12px;color:#000; }
-body > section > article > div > a > img.splash.connect { margin-top:10px; width:90%; }
-body > section > article > div > a > img.splash.connect:active { margin-top:10px; width:91%; }
+body > section > article > div > div.splash.subtext { margin-top:10px; text-align:center;font-size:12px;color:#000; height: 100%; top:0px; left:0;}
+body > section > article > div > a > img.splash.connect { margin-top:10px; width:85%; }
+body > section > article > div > a > img.splash.connect:active { margin-top:10px; width:86%; }
 
 body > section#gender > article > div.gender-title { height:18%; text-align:center; background:#fff;}
 body > section#gender > article > div.gender-title > div.gender-title-text { font-size:1.5em;color:#ff4e00; padding-top:45px; font-weight:bold;}
 body > section#gender > article > div.male-rect { height:33%; text-align:center; background: rgba(70, 177, 236, 0.6); border-top:2px solid #333;}
-body > section#gender > article > div > img { border-radius:50%; height: 70%; padding:5px; background:#327aaf; margin:20px;}
+body > section#gender > article > div.male-rect > div.male_image {height: 70%;margin:20px;background:#327aaf;}
+body > section#gender > article > div.male-rect > div.male_image > img.male_original_image {position: absolute;border-radius:50%;height: 25%;padding:5px; background:#327aaf; } 
+body > section#gender > article > div.male-rect > div.male_image > img.male_red_check_image {position: absolute; height: 25%;padding:5px;margin:8px;} 
+body > section#gender > article > div.female-rect { height:33%; text-align:center; background: rgba(242, 112, 223, 0.6); border-top:2px solid #333;}
+body > section#gender > article > div.female-rect > div.female_image {height: 70%;margin:20px;background:#327aaf;}
+body > section#gender > article > div.female-rect > div.female_image > img.female_original_image {position: absolute;border-radius:50%;height: 25%;padding:5px; background:#327aaf; } 
+body > section#gender > article > div.female-rect > div.female_image > img.female_red_check_image {position: absolute; height: 25%;padding:5px;margin:8px;} 
 body > section#gender > article > div > div.male-text { font-size:1.5em;color:#fff; font-weight:bold; margin-right:60px; margin-top:70px;}
 body > section#gender > article > div > div.female-text { font-size:1.5em;color:#fff; font-weight:bold; margin-left:50px; margin-top:70px;}
-body > section#gender > article > div.female-rect { height:33%; text-align:center; background: rgba(242, 112, 223, 0.6); border-top:2px solid #333;}
 
-body > section#skin_section > article > div.skin_face { height:25%; width:100%; background-image:url('../../img/skincolor/skin_face_background.png'); background-repeat:no-repeat; background-size:100%; text-align:center;}
-body > section#skin_section > article > div.skin_face > img { border-radius:50%; height: 85%; padding:5px; background:#d24d93; margin:10px; }
+body > section#skin_section > article > div.skin_face { position: relative; height:25%; width:100%; background-image:url('../../img/skincolor/skin_face_background.png'); background-repeat:no-repeat; background-size:100%; text-align:center;}
+body > section#skin_section > article > div.skin_face > img.skin_face_image { position: absolute; border-radius:50%; height: 85%; top:0px; left:30%; padding:5px; background:#d24d93; margin:10px; }
 body > section#skin_section > article > div.skin_color_text_rect { height:18%; text-align:center;}
 body > section#skin_section > article > div.skin_color_text_rect > div.skin_color_text { font-size:1.5em;color:#ff4e00; padding-top:35px; font-weight:bold;}
 body > section#skin_section > article > div.skin_colors > ul { list-style-type: none; padding:0px; margin:0px; }
@@ -145,7 +154,8 @@ body > section#skin_section > article > div.skin_colors > ul > li > div.skin_col
 body > section#skin_section > article > div.skin_colors > ul > li > div > img { height:30px; margin-top:20px; margin-left:-40px; display:none;}
 
 body > section#acne_section > article > div.acne_face { height:25%; width:100%; background-image:url('../../img/skincolor/skin_face_background.png'); background-repeat:no-repeat; background-size:100%; text-align:center;}
-body > section#acne_section > article > div.acne_face > img { border-radius:50%; height: 85%; padding:5px; background:#d24d93; margin:10px; }
+body > section#acne_section > article > div.acne_face > div.image_combo > img.acne_face_image {position: absolute;border-radius:50%; height: 85%;padding:5px; background:#d24d93; margin:8px;left:30% ! important;} 
+body > section#acne_section > article > div.acne_face > div.image_combo > img.acne_mask_image {position: absolute; height: 85%;padding:5px;margin:8px; left:30% ! important;} 
 body > section#acne_section > article > div.acne_text_rect { height:18%; text-align:center;}
 body > section#acne_section > article > div.acne_text_rect > div.acne_text { font-size:1.5em;color:#ff4e00; padding-top:35px; font-weight:bold;}
 body > section#acne_section > article > div.acne_list > ul { list-style-type: none; padding:0px; margin:0px; }
@@ -157,7 +167,9 @@ body > section#acne_section > article > div.acne_list > ul > li > div > img { he
 body > section#acne_section > article > div.acne_list > ul > li > div > div {font-size:1.5em;color:#000; padding-top:20px; font-weight:bold; margin-left:35px;} 
 
 body > section#freckle_section > article > div.freckle_face { height:25%; width:100%; background-image:url('../../img/skincolor/skin_face_background.png'); background-repeat:no-repeat; background-size:100%; text-align:center;}
-body > section#freckle_section > article > div.freckle_face > img { border-radius:50%; height: 85%; padding:5px; background:#d24d93; margin:10px; }
+body > section#freckle_section > article > div.freckle_face > div > img.freckle_face_image {position: absolute;border-radius:50%; height: 85%;padding:5px; background:#d24d93; margin:8px;left:30% ! important;}
+body > section#freckle_section > article > div.freckle_face > div > img.acne_mask_image { position: absolute; height: 85%;padding:5px;margin:8px; left:30% ! important; }
+body > section#freckle_section > article > div.freckle_face > div > img.freckle_mask_image { position: absolute; height: 85%;padding:5px;margin:8px; left:30% ! important; }
 body > section#freckle_section > article > div.freckle_text_rect { height:18%; text-align:center;}
 body > section#freckle_section > article > div.freckle_text_rect > div.freckle_text { font-size:1.5em;color:#ff4e00; padding-top:35px; font-weight:bold;}
 body > section#freckle_section > article > div.freckle_list > ul { list-style-type: none; padding:0px; margin:0px; }
@@ -168,7 +180,9 @@ body > section#freckle_section > article > div.freckle_list > ul > li > div > im
 body > section#freckle_section > article > div.freckle_list > ul > li > div > div {font-size:1.5em;color:#000; padding-top:20px; font-weight:bold; margin-left:35px;} 
 
 body > section#results_section > article > div.freckle_face { height:25%; width:100%; background-image:url('../../img/skincolor/skin_face_background.png'); background-repeat:no-repeat; background-size:100%; text-align:center;}
-body > section#results_section > article > div.freckle_face > img { border-radius:50%; height: 85%; padding:5px; background:#d24d93; margin:10px; }
+body > section#results_section > article > div.freckle_face > div > img.freckle_face_image {position: absolute;border-radius:50%; height: 85%;padding:5px; background:#d24d93; margin:8px;left:30% ! important;}
+body > section#results_section > article > div.freckle_face > div > img.acne_mask_image { position: absolute; height: 85%;padding:5px;margin:8px; left:30% ! important; }
+body > section#results_section > article > div.freckle_face > div > img.freckle_mask_image { position: absolute; height: 85%;padding:5px;margin:8px; left:30% ! important; }
 body > section#results_section > article > div.results_text_rect { height:18%; text-align:center;}
 body > section#results_section > article > div.results_text_rect > div.results_text { font-size:1.5em;color:#ff4e00; padding-top:35px; font-weight:bold;}
 body > section#results_section > article > div.results_list > ul { list-style-type: none; padding:0px; margin:0px; height:220px;}
@@ -217,6 +231,13 @@ body > section#article_detail_section > article > div.article_detail > div.artic
 
 body > section#doctors_list_section > article > div.doctors_list_rect { height:50px; text-align:center;background-image:url('../../img/doctor_title_bg.png'); background-repeat:no-repeat; background-size:100%; }
 body > section#doctors_list_section > article > div.doctors_list_rect > div.doctors_list_text { padding-top:10px; font-size:1.5em;color:#fff; font-weight:bold;}
+
+body > section#events_list_section > article > div.events_list_rect { height:50px; text-align:center;background-image:url('../../img/events_title_bg.png'); background-repeat:no-repeat; background-size:100%; }
+body > section#events_list_section > article > div.events_list_rect > div.events_list_text { padding-top:10px; font-size:1.5em;color:#fff; font-weight:bold;}
+
+.map_message {text-align:left; padding:10px;}
+.map_message .map_message_title {float:left; width:100%; text-align:left; float:left;}
+.map_message input {width:45%; margin-left:2%; margin-top:10px;}
 
 .console {
     background: #292f34;

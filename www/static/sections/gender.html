@@ -9,18 +9,24 @@
                 <div class="gender-title-text">Choose your Gender:</div>
             </div>
             <div class="male-rect centered">
-                <img src="img/m026_face0000.jpg" class="male_image on-left"/>
+                <div class="male_image on-left">
+                	<img src="img/face/15_35/m_15_35_0.png" class="male_original_image"/>
+                	<img src="img/red_check.png" class="male_red_check_image"/>
+                </div>
                 <div class="male-text on-right">Male</div>
             </div>
             <div class="female-rect centered">
                 <div class="female-text on-left">Female</div>
-                <img src="img/f021_face0000_2.jpg" class="female_image on-right"/>
+                <div class="female_image on-left" >
+                	<img src="img/face/15_35/m_15_35_0.png" class="female_original_image"/>
+                	<img src="img/red_check.png" class="female_red_check_image"/>
+                </div>
             </div>
         </article>
 
         <footer>
             <nav>
-                <a href="#" data-view-section="main" ><font size="5"><img src="img/left-arrow.png" style="height:20px; margin-top:-5px;" />&nbsp;&nbsp;&nbsp;&nbsp;Back</font></a>
+                <a onclick="Lungo.Router.back();"><font size="5"><img src="img/left-arrow.png" style="height:20px; margin-top:-5px;" />&nbsp;&nbsp;&nbsp;&nbsp;Back</font></a>
                 <a href="#" data-view-section="" id="gender_next_btn"><font size="5">Next&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/right-arrow.png" style="height:20px; margin-top:-5px;" /></font></a>
             </nav>
         </footer>

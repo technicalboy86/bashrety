@@ -4,11 +4,11 @@
        
             <div class="form" >
                 <label>Docter Name</label>
-                <input type="text" placeholder="Enter name" class="border" />
+                <input type="text" placeholder="Enter name" class="border" id="s_doctor_name"/>
                 
                 <label>Clinic Name</label>
                 <label class="select border">
-                    <select>
+                    <select id="s_clinic_name">
                         <option value="1">All</option>
                         <option value="2">Two</option>
                         <option value="3">Three</option>
@@ -17,15 +17,15 @@
                 
                 <label>Area</label>
                 <label class="select border">
-                    <select>
+                    <select id="s_doctor_area_search">
                         <option value="1">All</option>
                         <option value="2">Two</option>
                         <option value="3">Three</option>
                     </select>
                 </label>
                 
-                <button class="anchor accept margin-bottom" data-view-aside="right-sidebar" data-label="Clear"></button>
-                <button class="anchor cancel margin-bottom" data-view-aside="right-sidebar" data-label="Done"></button>
+                <button id="doctor_search_clear" data-label="Clear"></button>
+                <button data-view-aside="right-sidebar" data-label="Done"></button>
                 
             </div>
         

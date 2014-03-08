@@ -1,200 +1,92 @@
 var App = (function(lng, undefined) {
 
-	sectionTrigger = function(event) {
-           event.stopPropagation();
-           setTimeout(function() {
-                      lng.Notification.success("yout events manager", "info", 2);
-                      }, 300);
-		
-	};
-
-	articleTrigger = function(event) {
-		event.stopPropagation();
-		console.error(event);
-	};
-
 	return {
-		sectionTrigger: sectionTrigger,
-		articleTrigger: articleTrigger,
+
 	};
 
 })(Lungo);
 
-App.config = {
+App.question_data = {
 	gender : "A",
-    skin_color:null,
-    acne:null,
-    freckle:null
+    skin_color:"0",
+    acne:"c",
+    freckle:"d"
 };
 
 Lungo.ready(function() {
 
+	// Initialize DB.
+	App.database.open();
+    // Create instance of user for the current user. 
+
+	App.current_user = new App.user();
+
+	// Check if there is a logged in user.
+	App.current_user.getLoggedInUser();
 });
 
 Lungo.Events.init({
-	'load section#gender1': App.sectionTrigger,
-    
     'load section#doctors_list_section':function () {
-    	var clientPosition = new google.maps.LatLng(43.04, 129.7841619731);
-        var myOptions = {
-        	center: clientPosition,
-            zoom: 14,
-            mapTypeId: google.maps.MapTypeId.ROADMAP,
-            callback: function () { }
-        };
-                  
-        map_element = document.getElementById("map_canvas");
-        map = new google.maps.Map(map_element, myOptions);
-                  
-        var mapwidth = $(window).width();
-        var mapheight = $(window).height()-100;
-        $("#map_canvas").height(mapheight);
-        $("#map_canvas").width(mapwidth);
-        google.maps.event.trigger(map, 'resize');
-                 
-        currentLocationMarker = new google.maps.Marker({
-        	position: clientPosition,
-            animation: google.maps.Animation.DROP,
-            title:"Name : Jin Jin \n Street : Tumen",
-        });
-                  
-        currentLocationMarker1 = new google.maps.Marker({
-            position: new google.maps.LatLng(43.02, 129.7841619731),
-            animation: google.maps.Animation.DROP,
-            title:"Restaurant!"
-        });
-                  
-        var infowindow = new google.maps.InfoWindow();
-                  
-        google.maps.event.addListener(currentLocationMarker, 'click', function() {
-              //infowindow.setContent(this.title);
-              //infowindow.open(map, this);
-              Lungo.Notification.html('<h2>Name</h2><br><h4>Jin Jin</h4><br><h2>Details</h2><h4>aaaaaaaaa</h4>', "Close");
-        });
-                  
-        google.maps.event.addListener(currentLocationMarker1, 'click', function() {
-               infowindow.setContent(this.title);
-               infowindow.open(map, this);
-        });
-                  
-        currentLocationMarker.setMap(map);
-        currentLocationMarker1.setMap(map);                  
+    	App.map.addMap("doctors_map_canvas");
+    },
+    'load section#events_list_section':function () {
+    	App.map.addMap("events_map_canvas");
+    },
+    'load section#gender':function () {
+    	if(App.current_user.details.gender == "Male")
+    	{	
+    		App.question_data.gender = "m";
+    		App.component().gender_male().active();
+    		App.component().gender_female().inactive();
+    	}
+    	else
+    	{
+    		App.question_data.gender = "f";
+    		App.component().gender_male().inactive();
+    		App.component().gender_female().active();
+    	}
+    },
+    
+    'tap #event_search_clear': function() {
+        Lungo.dom("#s_event_time").val('');
+        Lungo.dom("#s_event_area_select").val('1');
+    },
+    
+    'tap #doctor_search_clear': function() {
+        Lungo.dom("#s_doctor_name").val('');
+        Lungo.dom("#s_clinic_name").val('1');
+        Lungo.dom("#s_doctor_area_search").val('1');
+    },
+    
+    'tap #login_btn': function() {
+	   //App.current_user.logout();
+        App.current_user.addUser();
     },
     
     'tap #gender_next_btn': function() {
-        if(App.config.gender == null)
-	        Lungo.Notification.success("please choose your gender.", "","", 2);
-        else
-			Lungo.Router.section("skin_section");
+	    Lungo.dom(".skin_face_image").attr("src", "img/face/"+App.current_user.details.age+"/"+App.question_data.gender+"_"+App.current_user.details.age+"_0.png");
+		Lungo.Router.section("skin_section");
     },
     'tap #skin_next_btn': function() {
-        if(App.config.skin_color == null)
+        if(App.question_data.skin_color == 0)
 	        Lungo.Notification.success("please choose your skin color.", "","", 2);
-        else
+        else{
+        	Lungo.dom(".acne_face_image").attr("src", "img/face/"+App.current_user.details.age+"/"+App.question_data.gender+"_"+App.current_user.details.age+"_"+App.question_data.skin_color+".png");
+        	Lungo.dom(".freckle_face_image").attr("src", "img/face/"+App.current_user.details.age+"/"+App.question_data.gender+"_"+App.current_user.details.age+"_"+App.question_data.skin_color+".png");
 			Lungo.Router.section("acne_section");
+		}
     },
     'tap #acne_next_btn': function() {
-        if(App.config.acne == null)
+        if(App.question_data.acne == null)
 	        Lungo.Notification.success("please choose one.", "","", 2);
-        else
+        else{        	
 			Lungo.Router.section("freckle_section");
+		}
     },
     'tap #freckle_next_btn': function() {
-        if(App.config.freckle == null)
+        if(App.question_data.freckle == null)
 	        Lungo.Notification.success("please choose one.", "","", 2);
         else
 			Lungo.Router.section("results_section");
-    },
-    'tap .male_image': function() {
-	    App.config.gender = "male";
-    	App.component().gender_male().active();
-    	App.component().gender_female().inactive();
-    },
-    'tap .female_image': function() {
-	    App.config.gender = "female";
-    	App.component().gender_male().inactive();
-    	App.component().gender_female().active();
-    },
-    'tap .skin_color_1': function() {
-	    App.config.skin_color = 1;
-    	App.component().skin_color1().active();
-    	App.component().skin_color2().inactive();
-    	App.component().skin_color3().inactive();
-    	App.component().skin_color4().inactive();
-    	App.component().skin_color5().inactive();
-    	App.component().skin_color6().inactive();
-    },
-    'tap .skin_color_2': function() {
-    	App.config.skin_color = 2;
-    	App.component().skin_color1().inactive();
-    	App.component().skin_color2().active();
-    	App.component().skin_color3().inactive();
-    	App.component().skin_color4().inactive();
-    	App.component().skin_color5().inactive();
-    	App.component().skin_color6().inactive();
-    },
-    'tap .skin_color_3': function() {
-	    App.config.skin_color = 3;
-    	App.component().skin_color1().inactive();
-    	App.component().skin_color2().inactive();
-    	App.component().skin_color3().active();
-    	App.component().skin_color4().inactive();
-    	App.component().skin_color5().inactive();
-    	App.component().skin_color6().inactive();
-    },
-    'tap .skin_color_4': function() {
-	    App.config.skin_color = 4;    
-    	App.component().skin_color1().inactive();
-    	App.component().skin_color2().inactive();
-    	App.component().skin_color3().inactive();
-    	App.component().skin_color4().active();
-    	App.component().skin_color5().inactive();
-    	App.component().skin_color6().inactive();
-    },
-    'tap .skin_color_5': function() {
-	    App.config.skin_color = 5;    
-    	App.component().skin_color1().inactive();
-    	App.component().skin_color2().inactive();
-    	App.component().skin_color3().inactive();
-    	App.component().skin_color4().inactive();
-    	App.component().skin_color5().active();
-    	App.component().skin_color6().inactive();
-    },
-    'tap .skin_color_6': function() {
-	    App.config.skin_color = 6;    
-    	App.component().skin_color1().inactive();
-    	App.component().skin_color2().inactive();
-    	App.component().skin_color3().inactive();
-    	App.component().skin_color4().inactive();
-    	App.component().skin_color5().inactive();
-    	App.component().skin_color6().active();
-    },
-    'tap .acne_none': function() {
-	    App.config.acne = "none";    
-    	App.component().acne_none().active();
-    	App.component().acne_few().inactive();
-    	App.component().acne_many().inactive();
-    },
-    'tap .acne_few': function() {
-	    App.config.acne = "few";      
-    	App.component().acne_none().inactive();
-    	App.component().acne_few().active();
-    	App.component().acne_many().inactive();
-    },
-    'tap .acne_many': function() {
-	    App.config.acne = "many";      
-    	App.component().acne_none().inactive();
-    	App.component().acne_few().inactive();
-    	App.component().acne_many().active();
-    },
-    'tap .freckle_none': function() {
-	    App.config.freckle = "none";      
-    	App.component().freckle_none().active();
-    	App.component().freckle_yes().inactive();
-    },
-    'tap .freckle_yes': function() {
-	    App.config.freckle = "yes";      
-    	App.component().freckle_none().inactive();
-    	App.component().freckle_yes().active();
     },
 });

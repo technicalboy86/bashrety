@@ -24,9 +24,6 @@
 
 		// device APIs are available
 		function onDeviceReady() {
-			// pictureSource=navigator.camera.PictureSourceType;
-			// destinationType=navigator.camera.DestinationType;
-			// Change webview background color (dropdowns etc) from PhoneGap default (black) to white.
 			if (window.plugins != undefined && window.plugins.webviewcolor != undefined) {
 				window.plugins.webviewcolor.change('#ffffff');
 			}
@@ -45,8 +42,32 @@
                 <div class='login-form form'>
                     <input type="text" id="login-name" placeholder="Your Name"/>
                     <input type="text" id="login-email" placeholder="Your Email"/>
+                    <label class="select border" >
+                    <select id="select_age">
+                    	<option value="" selected="selected">Age Groups </option>
+                        <option value="15_35">15 - 35 </option>
+                        <option value="35_45">35 - 45 </option>
+                        <option value="45_80">45 -  </option>
+                    </select>
+                	</label>
+                	
+                	<label class="select border" >
+                    <select id="select_gender">
+                    	<option value="" selected="selected">Gender</option>
+                        <option value="Male">Male </option>
+                        <option value="Female">Female </option>
+                    </select>
+                	</label>
+                	
+                	<label class="select border" >
+                    <select id="select_language">
+                    	<option value="" selected="selected">Language</option> 
+                        <option value="English">English</option>
+                        <option value="Arab">Arab </option>
+                    </select>
+                	</label>
                 </div>
-                <a href="#" data-view-section="gender"><img src='img/done_btn.png' class="splash connect centered"/></a>
+                <a href="#" data-view-section="" id ="login_btn"><img src='img/done_btn.png' class="splash connect centered"/></a>
                 <a href="#" style="height:20px;"><img src='img/or_line.png' class="splash connect centered" /></a>
                 <a href="#" data-view-section=""><img src='img/fb_btn.png' class="splash connect centered"/></a>
 			</div>
@@ -68,6 +89,7 @@
 				resources: [
                     'static/asides/left-sidebar.html',
                     'static/asides/right.html',
+                    'static/asides/events_right-sidebar.html',
 					'static/sections/gender.html',
                     'static/sections/skin.html',
                     'static/sections/acne.html',
@@ -78,16 +100,18 @@
                     'static/sections/article_list.html',
                     'static/sections/article_detail.html',
                     'static/sections/doctors_list.html',
+                    'static/sections/events_list.html',
 				],
 				history: false
 			});
 		</script>
 		<script src="static/javascripts/app.js"></script>
         <script src="static/javascripts/app.component.js"></script>
-<!-- 
+        <script src="static/javascripts/app.map.js"></script>
 		<script src="static/javascripts/app.api.js"></script> 
 		<script src="static/javascripts/app.user.js"></script>
- -->
+		<script src="static/javascripts/app.database.js"></script>
+		<script src="static/javascripts/app.db.js"></script>
 		<script src="js/fancybox/jquery.fancybox.js"></script>
 		<script src="js/fancybox/jquery.fancybox-thumbs.js"></script>
 		
