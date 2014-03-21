@@ -1,0 +1,44 @@
+<?php echo $this->partial("_partials/siteheader.phtml");?>
+<section class="section section-padding-large">
+  <div class="container">
+    <div class="row-fluid">
+      
+			<div class="tabset tabs_style1 clearfix">
+				<div class="panel tab-content" id="panel_dashboard">
+				
+					<h3><i class="icon-list"></i>News</h3>
+					<div style="float:right;"><?php echo $this->paginator; ?></div>	
+						<table>
+							<thead>
+								<tr>
+									<th width="10%">S. No</th>
+									<th width="20%">Image</th>
+									<th width="30%">Link</th>
+									<th width="25%">Update Date</th>
+									<th width="15%">Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								<?php if(sizeof($this->paginator)>0) { ?>
+								<?php
+									$i=0;
+									foreach ($this->paginator as $row) { $i++;
+								?>
+								<tr>
+									<td style="vertical-align:top;" align="center"><?php echo $i; ?></td>
+									<td style="vertical-align:top;" align="center"><img src="<?php echo $this->baseUrl()."/images/news/".$row['image'];?>" /></td>
+									<td style="vertical-align:top;" align="center"><a href="<?php echo $row['link_url'];?>"><?php echo $row['link_url'];?></a></td>
+									<td style="vertical-align:top;" align="center"><?php echo $row['update_date'];?></td>
+									<td style="vertical-align:top;" align="center"><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'edit-news', 'id' => $row['id']), null, true);?>">Edit</a>&nbsp;|&nbsp;<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'delete-news', 'id' => $row['id']), null, true);?>">Delete</a></td>
+								</tr>
+								<?php } } else {?>
+									<tr><td colspan="5" align="center">There is no news in company.</td></tr>
+								<?php } ?>
+							</tbody>
+						</table>
+						<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-news'), null, true);?>" class="medium radius green button">Add News</a>
+				</div>
+      <div class="gap" style="height:50px"></div>
+    </div>
+  </div>
+</section>

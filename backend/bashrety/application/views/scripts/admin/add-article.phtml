@@ -1,0 +1,66 @@
+<?php echo $this->partial("_partials/siteheader.phtml", array('js' => array('heading'=>'articles','/js/admin-cms.js', '/js/tiny_mce/jquery.tinymce.js')));?>
+<section class="section section-padding-large">
+  <div class="container">
+    <div class="row-fluid">
+      
+			<div class="tabset tabs_style1 clearfix">
+				<div class="panel tab-content" id="panel_dashboard">
+				
+					<h3><i class="icon-list"></i>Add Article</h3>
+					<form class="nice" method="post" action="" enctype="multipart/form-data">
+      		<div class="row">
+	      		<div class="eight columns">  
+	      			<strong><label>Title:</label></strong>
+		      		<input class="input-text" style="width:600px;" name="title" type="text" value="" />                   
+              			<?php  if(isset($this->error_data['title'])) { ?>                        
+				    	<small class="error" style="margin-top:5px !important; width:252px !important;">Please Enter Title</small><br>
+				    	<?php } ?>
+				    	<br>
+				    <strong><label>Teaser Image:</label></strong><br>
+		     		<input class="input-text" type="file" name="teaser_image" id="article-teaser-image" value="" />
+		     		<div id="uploadteaser"><img id="teaser-image" width="60px" src="" /></div>
+             <?php if(isset($this->error_data['teaser_image'])) { ?>                        
+				    	<small class="error" style="margin-top:5px !important; width:252px !important;">Please select teaser image</small><br>
+				    	<?php } ?><br>              
+		      		<strong><label>Main Image:</label></strong><br>
+		     		<input class="input-text" type="file" name="main_image" id="article-main-image" value="" />
+		     		<div id="uploadmain"><img id="main-image" width="150px" src="" /></div>
+             <?php if(isset($this->error_data['main_image'])) { ?>                        
+				    	<small class="error" style="margin-top:5px !important; width:252px !important;">Please select main image</small><br>
+				    	<?php } ?>
+		       		<br><strong><label>Body:</label></strong>
+		      		<textarea name="body" style="width:500px" rows="2"></textarea>
+              <?php  if(isset($this->error_data['body'])) { ?>                        
+				    	<small class="error" style="margin-top:5px !important; width:252px !important;">Please enter body of article</small><br>
+				    	<?php } ?>
+				    	<Br>
+		      	</div>
+		      	<script>
+        	    function readURL(input,val) {
+				        if (input.files && input.files[0]) {
+						            var reader = new FileReader();						            
+						            reader.onload = function (e) {
+						                $(val).attr('src', e.target.result);
+						            }						            
+						            reader.readAsDataURL(input.files[0]);
+						        }
+						    }						    
+						    $("#article-main-image").change(function(){
+						        readURL(this,'#main-image');
+						        document.getElementById("uploadmain").style.display="block";
+						    });
+						    $("#article-teaser-image").change(function(){
+						        readURL(this,'#teaser-image');
+						        document.getElementById("uploadteaser").style.display="block";
+						    });		      		
+		      	</script>
+		    </div>
+		    <div class="row">
+	      		<input type="submit" class="medium radius green button" value="Add Article" />
+		    </div>
+		</form>  
+				</div>
+      <div class="gap" style="height:50px"></div>
+    </div>
+  </div>
+</section>

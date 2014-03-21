@@ -1,0 +1,45 @@
+.glossymenu{
+list-style-type: none;
+margin: 0;
+padding: 0;
+width: 250px; /*WIDTH OF MAIN MENU ITEMS*/
+background-color:#fff;
+}
+
+.glossymenu li{
+position: relative;
+height:45px;
+padding-top:10px;
+
+}
+
+.glossymenu li a:hover{
+border-bottom: 2px solid #2d5f82;
+}
+
+.glossymenu li a{	
+font-family: "museo_sans_500 A", "Open Sans", "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+font-size:14px;
+font-weight:bold;
+color:#2d5f82;
+display: block;
+width: auto;
+padding: 5px 0;
+padding-left: 20px;
+text-decoration: none;
+border-bottom: 1px solid #e5e5e5;
+}
+
+.glossymenu li a.active {
+	border-bottom:1px solid #2d5f82;
+}
+
+.glossymenu li a:hover{
+	color:#000;
+}
+
+/* Holly Hack for IE \*/
+* html .glossymenu li { float: left; height: 2%; }
+* html .glossymenu li a { height: 1%; }
+/* End */
+

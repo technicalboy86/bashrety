@@ -1,0 +1,43 @@
+<?php echo $this->partial("_partials/siteheader.phtml", array('heading'=>'events','js' => array('/js/admin-cms.js','/js/tiny_mce/jquery.tinymce.js')));?>
+<section class="section section-padding-large">
+  <div class="container">
+    <div class="row-fluid">
+      
+			<div class="tabset tabs_style1 clearfix">
+				<div class="panel tab-content" id="panel_dashboard">
+				
+					<h3><i class="icon-list"></i>Events</h3>
+					<div style="float:right;"><?php echo $this->paginator; ?></div>	
+						<form class="nice">
+			<table style="width: 100%;">
+				<thead>
+					<tr>
+						<th width="10%">S. No</th>
+						<th width="20%">Name</th>
+						<th width="30%">Description</th>
+						<th width="25%">Date</th>
+						<th width="15%">Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php if(sizeof($this->paginator)>0) { ?>
+					<?php $i=0; foreach ($this->paginator as $row) { $i++; ?><tr>
+					<tr>
+						<td style="vertical-align:top;" align="center"><?php echo $i;?></td>
+						<td style="vertical-align:top;" align="center"><?php echo $row['name']; ?></td>
+						<td style="vertical-align:top;" align="center"><?php if(strlen($row['description'])>50) echo substr($row['description'],0,50).'...'; else echo $row['description']; ?></td>
+						<td style="vertical-align:top;" align="center"><?php echo $row['date'];?></td>
+						<td style="vertical-align:top;" align="center"><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'eventsgoing', 'eventid' => $row['id']), null, true);?>">Going</a> | <a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'edit-events', 'id' => $row['id']), null, true);?>">Edit</a> | <a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'delete-events', 'id' => $row['id']), null, true);?>">Delete</a></td>
+					</tr>
+					<?php } } else {?>
+						<tr><td colspan="5" align="center">There is no events.</td></tr>
+					<?php } ?>
+				</tbody>
+			</table>
+		</form>
+        <a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-events'), null, true);?>" class="medium radius green button">Add Events</a>
+				</div>
+      <div class="gap" style="height:50px"></div>
+    </div>
+  </div>
+</section>

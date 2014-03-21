@@ -1,0 +1,53 @@
+    <!--
+    See http://developer.yahoo.com/ypatterns/pattern.php?pattern=searchpagination
+    -->
+     
+    <?php if ($this->pageCount): ?>
+    <div class="paginationControl">
+    <!-- Previous page link -->
+    <?php if (isset($this->previous)): ?>
+      <a href="<?php echo $this->url(array('page' => $this->previous)); ?>">
+        &laquo; Previous
+      </a> 
+    <?php else: ?>
+      <span class="disabled">&laquo; Previous</span> 
+    <?php endif; ?>
+     
+    <!-- Numbered page links -->
+    <?php foreach ($this->pagesInRange as $page): ?>
+      <?php if ($page != $this->current){ if($page>4 && $page!=count($this->pagesInRange)){?><?php echo '.'; ?><?php }else{?>
+        <a href="<?php echo $this->url(array('page' => $page)); ?>">
+            <?php echo $page; ?>
+        </a> 
+      <?php } }else{ ?>
+        <?php echo $page; ?> 
+      <?php } ?>
+    <?php endforeach; ?>
+     
+    <!-- Next page link -->
+    <?php if (isset($this->next)): ?>
+      <a href="<?php echo $this->url(array('page' => $this->next)); ?>">
+        Next &raquo;
+      </a>
+    <?php else: ?>
+      <span class="disabled">Next &raquo;</span>
+     <?php endif; if(isset($_POST['rows'])){$row = $_POST['rows'];}else{$row = '5'; }?>
+    <div class="no_pages">
+    <form name="nopages" method="post">
+    <label>Display</label>
+    <select name="rows" style="width:50px;padding:0;display:inline;">
+    <option value="5" <?php if($row=='5'){?> selected <?php }?>>5</option>
+    <option value="10" <?php if($row=='10'){?> selected <?php }?>>10</option>
+    <option value="25" <?php if($row=='25'){?> selected <?php }?>>25</option>
+    <option value="50" <?php if($row=='50'){?> selected <?php }?>>50</option>
+     <option value="100" <?php if($row=='100'){?> selected <?php }?>>100</option>
+     <option value="200" <?php if($row=='200'){?> selected <?php }?>>200</option>
+    </select>
+    <label>Rows per Page</label>
+    <input type="submit" value="Update" class="small radius blue button" style="padding:0; height:20px; min-width:80px; font-size:10px;"/>
+    </form>
+    </div>
+    </div>
+    <?php endif; ?>
+
+    

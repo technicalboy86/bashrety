@@ -1,0 +1,71 @@
+<?php echo $this->partial("_partials/siteheader.phtml", array('js' => array('/js/admin-cms.js', '/js/tiny_mce/jquery.tinymce.js')));?>
+<section class="section section-padding-large">
+  <div class="container">
+    <div class="row-fluid">
+      
+			<div class="tabset tabs_style1 clearfix">
+				<div class="panel tab-content" id="panel_dashboard">
+				
+					<h3><i class="icon-list"></i>Add Area</h3>
+					<form class="nice" method="post" action="" enctype="multipart/form-data">
+      		<div class="row">
+	      		<div class="eight columns">
+	      		<strong><label>Area Name:</label></strong>
+		      		<input class="input-text" style="width:600px;" id="name" name="name" type="text" value="" readonly/>                   
+ 		      		<input name="lat" id="lat" type="hidden"/>
+		      		<input name="lon" id="lon" type="hidden"/>
+              <?php  if(isset($this->error_data['name'])) { ?>                        
+				    	<small class="error" style="margin-top:5px !important; width:252px !important;">Please pick on the map to get the address</small><br>				    	
+				    	<?php } ?>
+				    	<div id="map_canvas" style="width:800px; height:400px;"></div>
+				    	<br>
+		      	</div>
+		      	<script>
+		      		var marker=null;
+		      		function initialize() {
+				        var map_canvas = document.getElementById('map_canvas');
+				        var map_options = {
+				          center: new google.maps.LatLng(34.0526594,-118.24481964),
+				          zoom: 8,
+				          mapTypeId: google.maps.MapTypeId.ROADMAP
+				        }
+				        var map = new google.maps.Map(map_canvas, map_options)
+								google.maps.event.addListener(map, 'click', function(event) {
+									if(marker==null) {
+										marker = new google.maps.Marker({
+										    position: event.latLng,
+										    map: map,
+										  });
+									} else {
+											marker.setPosition(event.latLng);
+									}									
+									var latlng = String(event.latLng);
+									var pos=latlng.substring(1,latlng.length-1)
+									var lat_lng=pos.split(',');
+									$("#lat").val(lat_lng[0]);
+									$("#lon").val(lat_lng[1]);
+									$.ajax({		
+										type: 'POST',
+										url :  'http://maps.googleapis.com/maps/api/geocode/json?latlng='+pos+'&sensor=true',
+										/*url : 'http://maps.googleapis.com/maps/api/geocode/json?latlng=44.4647452,7.3553838&sensor=true',*/
+										success: function(response) {
+											$("#name").val(response['results'][0]['address_components'][2]['long_name']);
+										},
+										error: function(request, error, status) {
+											alert(status);
+										}
+									});									
+								});				      				        
+				      }
+				      google.maps.event.addDomListener(window, 'load', initialize);	        	    				      		
+		      	</script>
+		    </div>
+		    <div class="row">
+	      		<input type="submit" class="medium radius green button" value="Add Content" />
+		    </div>
+		</form>  
+				</div>
+      <div class="gap" style="height:50px"></div>
+    </div>
+  </div>
+</section>

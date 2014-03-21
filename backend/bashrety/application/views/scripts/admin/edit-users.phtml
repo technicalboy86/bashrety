@@ -1,0 +1,64 @@
+<?php echo $this->partial("_partials/siteheader.phtml", array('js' => array('/js/admin-cms.js', '/js/tiny_mce/jquery.tinymce.js')));?>
+<section class="section section-padding-large">
+  <div class="container">
+    <div class="row-fluid">
+      
+			<div class="tabset tabs_style1 clearfix">
+				<div class="panel tab-content" id="panel_dashboard">
+				
+					<h3><i class="icon-list"></i>Edit User</h3>
+					<form class="nice" method="post" action="" enctype="multipart/form-data">
+      		<div class="row">
+	      		<div class="eight columns">  
+	      			<strong><label>Name:</label></strong>
+		      		<input class="input-text" style="width:600px;" name="userName" type="text" value="<?php echo $this->user_data['userName']; ?>" />                   
+              			<?php  if(isset($this->error_data['name'])) { ?>                        
+				    	<small class="error" style="margin-top:5px !important; width:252px !important;">Please Enter Name.</small><br>
+				    	<?php } ?>				    	
+				    	<Br>
+				    	<strong><label>Email:</label></strong>
+		      		<input class="input-text" style="width:600px;" name="email" type="text" value="<?php echo $this->user_data['email']; ?>" />                   
+              <?php  if(isset($this->error_data['email'])) { ?>
+				    	<small class="error" style="margin-top:5px !important; width:252px !important;">Please Enter Email.</small><br>
+				    	<?php } ?>				    	
+				    	<Br>
+				    	<strong><label>Age Group:</label></strong>		      		
+				    	<select name="age">
+				    		<option value=""></option>
+				    		<option value="1-25" <?php if($this->user_data['age']=="1-25") echo "selected"; ?>>Younger than 25</option>
+				    		<option value="25-35" <?php if($this->user_data['age']=="25-35") echo "selected"; ?>>From 25 To 35</option>
+				    		<option value="35-45" <?php if($this->user_data['age']=="35-45") echo "selected"; ?>>From 35 to 45</option>
+				    		<option value="45-90" <?php if($this->user_data['age']=="45-90") echo "selected"; ?>>Older than 45</option>
+				    	</select>
+              <?php  if(isset($this->error_data['age'])) { ?>
+				    	<small class="error" style="margin-top:5px !important; width:252px !important;">Please Select Age.</small><br>
+				    	<?php } ?>				    	
+				    	<Br>
+				    	<strong><label>Gender:</label></strong><Br>
+				    	<input type="radio" name="gender" value="male" <?php if($this->user_data['gender']=="male") echo "checked"; ?>>Male &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				    	<input type="radio" name="gender" value="female" <?php if($this->user_data['gender']=="female") echo "checked"; ?>>Female
+              <?php  if(isset($this->error_data['gender'])) { ?><br>
+				    	<small class="error" style="margin-top:5px !important; width:252px !important;">Please Select Gender.</small><br>
+				    	<?php } ?>				    	
+				    <Br></br>
+				    	<strong><label>Language:</label></strong>		      		
+				    	<select name="language">
+				    		<option value=""></option>
+				    		<option value="Arabic" <?php if($this->user_data['language']=="Arabic") echo "selected"; ?>>Arabic</option>
+				    		<option value="English" <?php if($this->user_data['language']=="English") echo "selected"; ?>>English</option>
+				    	</select>				    	
+              <?php  if(isset($this->error_data['language'])) { ?>
+				    	<small class="error" style="margin-top:5px !important; width:252px !important;">Please Select Language.</small><br>
+				    	<?php } ?>				    	
+				    	<Br>				    	
+		      	</div>
+		    </div>
+		    <div class="row">
+	      		<input type="submit" class="medium radius green button" value="Edit User" />
+		    </div>
+		</form>  
+				</div>
+      <div class="gap" style="height:50px"></div>
+    </div>
+  </div>
+</section>

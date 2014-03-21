@@ -1,0 +1,30 @@
+<?php echo $this->partial("_partials/siteheader.phtml", array('js' => array('/js/admin-cms.js', '/js/tiny_mce/jquery.tinymce.js')));?>
+<section class="section section-padding-large">
+  <div class="container">
+    <div class="row-fluid">
+      
+			<div class="tabset tabs_style1 clearfix">
+				<div class="panel tab-content" id="panel_dashboard">
+				
+					<h3><i class="icon-list"></i>Add Clinic Name</h3>
+					<form class="nice" method="post" action="" enctype="multipart/form-data">
+      		<div class="row">
+	      		<div class="eight columns">
+	      		<strong><label>Clinic Name:</label></strong>
+		      		<input class="input-text" style="width:600px;" id="name" name="name" type="text" value=""/>                
+ 		      		
+              <?php  if(isset($this->error_data['name'])) { ?>                        
+				    	<small class="error" style="margin-top:5px !important; width:252px !important;">Please Enter Clinic Name.</small><br>				    	
+				    	<?php } ?>				    	
+		      	</div>
+		      	
+		    </div>
+		    <div class="row">
+	      		<input type="submit" class="medium radius green button" value="Add Content" />
+		    </div>
+		</form>  
+				</div>
+      <div class="gap" style="height:50px"></div>
+    </div>
+  </div>
+</section>

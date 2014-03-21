@@ -1,0 +1,45 @@
+<?php echo $this->partial("_partials/siteheader.phtml", array('heading'=>'events','js' => array('/js/admin-cms.js','/js/tiny_mce/jquery.tinymce.js')));?>
+<section class="section section-padding-large">
+  <div class="container">
+    <div class="row-fluid">
+      
+			<div class="tabset tabs_style1 clearfix">
+				<div class="panel tab-content" id="panel_dashboard">
+				
+					<h3><i class="icon-list"></i>Events</h3>
+					<p><?php echo "Event Name:  <b>".$this->event_data['name']."</b>"; ?></p>
+					<p><?php echo "Event Description:<br><b>".$this->event_data['description']."</b>"; ?></p>
+					<p><?php echo "Event Date:  <b>".$this->event_data['date']."</b>"; ?></p>
+					<p><?php echo "Event Area:  <b>".$this->event_data['area']."</b>"; ?></p>
+					<div style="float:right;"><?php echo $this->paginator; ?></div>	
+						<form class="nice">
+			<table style="width: 100%;">
+				<thead>
+					<tr>
+						<th width="10%">S. No</th>
+						<th width="20%">Name</th>
+						<th width="30%">Email</th>
+						<th width="25%">Record Date</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php if(sizeof($this->paginator)>0) { ?>
+					<?php $i=0; foreach ($this->paginator as $row) { $i++; ?><tr>
+					<tr>
+						<td style="vertical-align:top;" align="center"><?php echo $i;?></td>
+						<td style="vertical-align:top;" align="center"><?php echo $row['userName']; ?></td>						
+						<td style="vertical-align:top;" align="center"><?php echo $row['email'];?></td>
+						<td style="vertical-align:top;" align="center"><?php echo $row['create_date'];?></td>
+					</tr>
+					<?php } } else {?>
+						<tr><td colspan="5" align="center">There is no events going list.</td></tr>
+					<?php } ?>
+				</tbody>
+			</table>
+		</form>
+       
+				</div>
+      <div class="gap" style="height:50px"></div>
+    </div>
+  </div>
+</section>

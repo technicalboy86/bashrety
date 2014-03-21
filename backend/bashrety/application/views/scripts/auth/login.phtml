@@ -1,0 +1,47 @@
+<?php echo $this->partial("_partials/siteheader.phtml", array('css'=>'','heading' => "Login"));?>
+
+<section class="section">
+  <div class="container">
+    <div class="row-fluid">
+			<div class="span6 login-box" style="left:50%; margin-left:-15%;width:30%;">
+			<h1>Login</h1>
+      <div>
+        <form action="" method="post" class="login-form field-icons-yes">
+        	<?php if ($this->form->isErrors()):?>
+					<?php /*?>	<?php foreach ($this->form->getErrors() as $errors):?>
+							<?php foreach ($errors as $message):?>
+								<div style="color:red"><?php echo $message;?></div>
+							<?php endforeach;?>
+						<?php endforeach;?><?php */?>
+			 
+						<?php foreach ($this->form->getErrorMessages() as $error):?>
+								<div class="alert alert-error" id="contactError"><span class="close"><i class="icon-blandes-remove"></i></span><?php echo $error;?></div>
+						<?php endforeach;?>
+			 
+					<?php endif; ?>
+          <div>
+						<h6>Username</h6>
+            <div class="control-wrap">
+              <!--<input type="text" name="email"  class="email"  placeholder="Email Address" />-->
+               <?php echo $this->form->username;?>
+             </div>
+          </div>
+					<div>
+						<h6>Password</h6>
+            <div class="control-wrap">
+              <!--<input type="password" name="password"  class="password"  placeholder="Password" />-->
+              <?php echo $this->form->password;?>
+             </div>
+          </div>
+					<div class="control-wrap">
+            <input type="checkbox" name="keeploggedin" id="keeploggedin"><label for="keeploggedin">Keep me logged in</label>
+          </div>
+          <p>
+            <input type="submit" value="Login" class="submit" />
+          </p>
+        </form>
+      </div>
+			</div>
+    </div>
+  </div>
+</section>

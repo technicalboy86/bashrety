@@ -1,0 +1,94 @@
+<?php echo $this->partial("_partials/siteheader.phtml", array('heading'=>'edoctors'));?>
+<section class="section section-padding-large">
+  <div class="container">
+    <div class="row-fluid">
+      
+			<div class="tabset tabs_style1 clearfix">
+				<div class="panel tab-content" id="panel_dashboard">
+				
+					<h3><i class="icon-list"></i>E-Doctor Product Management</h3>
+
+						<p>Add Product</p>
+						<table>
+							<thead>
+								<tr>
+									<th width="10%">S. No</th>
+									<th width="20%">Product Name</th>
+									<th width="50%">Product Description</th>
+									<th width="10%">Product Price</th>
+									<th width="10%">Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								<?php if(sizeof($this->add_products)>0) { ?>
+								<?php
+									$i=0;
+									foreach ($this->add_products as $row) { $i++;
+								?>
+								<tr>
+									<td style="vertical-align:top;" align="center"><?php echo $i; ?></td>
+									<td style="vertical-align:top;" align="center"><?php echo $row['name']; ?></td>
+									<td style="vertical-align:top;" align="center"><?php echo $row['description']; ?></td>
+									<td style="vertical-align:top;" align="center"><?php echo $row['price'];?></td>
+									<td style="vertical-align:top;" align="center"><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'delete-edoctorsproduct', 'id' => $row['edoctorid']), null, true);?>">Delete</a></td>
+								</tr>
+								<?php } } else {?>
+									<tr><td colspan="5" align="center">There is no product list.</td></tr>
+								<?php } ?>
+							</tbody>
+						</table>
+						<form class="nice" method="post" action="" enctype="multipart/form-data">
+							<select name="product_id">
+							<?php foreach($this->product_list as $row) { ?>
+								<option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
+							<?php } ?>
+							</select>
+							<input type="hidden" name="metakey" value="<?php echo $this->metakey; ?>" />
+							<input type="hidden" name="type" value="add" />
+							<input type="submit" class="medium radius green button" value="Add Product To Add" />
+						</form>
+						<br><br><br>
+						<p>Remove Product</p>
+						<table>
+							<thead>
+								<tr>
+									<th width="10%">S. No</th>
+									<th width="20%">Product Name</th>
+									<th width="50%">Product Description</th>
+									<th width="10%">Product Price</th>
+									<th width="10%">Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								<?php if(sizeof($this->remove_products)>0) { ?>
+								<?php
+									$i=0;
+									foreach ($this->remove_products as $row) { $i++;
+								?>
+								<tr>
+									<td style="vertical-align:top;" align="center"><?php echo $i; ?></td>
+									<td style="vertical-align:top;" align="center"><?php echo $row['name']; ?></td>
+									<td style="vertical-align:top;" align="center"><?php echo $row['description']; ?></td>
+									<td style="vertical-align:top;" align="center"><?php echo $row['price'];?></td>
+									<td style="vertical-align:top;" align="center"><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'delete-edoctorsproduct', 'id' => $row['edoctorid']), null, true);?>">Delete</a></td>
+								</tr>
+								<?php } } else {?>
+									<tr><td colspan="5" align="center">There is no product list.</td></tr>
+								<?php } ?>
+							</tbody>
+						</table>
+						<form class="nice" method="post" action="" enctype="multipart/form-data">
+							<select name="product_id">
+							<?php foreach($this->product_list as $row) { ?>
+								<option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
+							<?php } ?>
+							</select>
+							<input type="hidden" name="metakey" value="<?php echo $this->metakey; ?>" />
+							<input type="hidden" name="type" value="remove" />
+							<input type="submit" class="medium radius green button" value="Add Product To Remove" />
+						</form>
+				</div>
+      <div class="gap" style="height:50px"></div>
+    </div>
+  </div>
+</section>

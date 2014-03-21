@@ -1,0 +1,29 @@
+<?php echo $this->partial("_partials/siteheader.phtml", array('js' => array('/js/admin-cms.js', '/js/tiny_mce/jquery.tinymce.js')));?>
+<section class="section section-padding-large">
+  <div class="container">
+    <div class="row-fluid">
+      
+			<div class="tabset tabs_style1 clearfix">
+				<div class="panel tab-content" id="panel_dashboard">
+				
+					<h3><i class="icon-list"></i>Edoctor Tip</h3>
+					<form class="nice" method="post" action="" enctype="multipart/form-data">
+      		<div class="row">
+	      		<div class="eight columns">	      		
+				    	<br><strong><label>Tip:</label></strong>
+		      		<textarea name="tip" style="width:600px" rows="5"><?php if(isset($this->tip_data['tip'])) echo $this->tip_data['tip']; ?></textarea>
+              <?php  if(isset($this->error_data['tip'])) { ?>                        
+				    	<small class="error" style="margin-top:5px !important; width:252px !important;">Please Enter Tip</small><br>
+				    	<?php } ?>
+				    	
+		    	</div>
+		    <div class="row">
+		    	<input type="hidden" name="metakey" value="<?php echo $this->metakey; ?>" />
+	      		<input type="submit" class="medium radius green button" value="Submit" />
+		    </div>
+		</form>  
+				</div>
+      <div class="gap" style="height:50px"></div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,68 @@
+<?php echo $this->partial("_partials/siteheader.phtml", array('js' => array('/js/admin-cms.js', '/js/tiny_mce/jquery.tinymce.js')));?>
+<section class="section section-padding-large">
+  <div class="container">
+    <div class="row-fluid">
+      
+			<div class="tabset tabs_style1 clearfix">
+				<div class="panel tab-content" id="panel_dashboard">
+				
+					<h3><i class="icon-list"></i>News</h3>
+					<form class="nice" method="post" action="" enctype="multipart/form-data">
+      		<div class="row">
+	      		<div class="eight columns">  
+	      			<strong><label>Title:</label></strong>
+		      		<input class="input-text" style="width:600px;" name="title" type="text" value="" />                   
+              			<?php  if(isset($this->error_data['title'])) { ?>                        
+				    	<small class="error" style="margin-top:5px !important; width:252px !important;">Please Enter Title</small><br>
+				    	<?php } ?>
+				    	<br>
+				    <strong><label>Icon:</label></strong><br>
+		     		<input class="input-text" type="file" name="news-icon" id="news-icon" value="" />
+		     		<div id="uploadicon"><img id="icon" width="60px" src="" /></div>
+             <?php if(isset($this->error_data['icon'])) { ?>                        
+				    	<small class="error" style="margin-top:5px !important; width:252px !important;">Please Select your Icon</small><br>
+				    	<?php } ?><br>              
+		      		<strong><label>Image:</label></strong><br>
+		     		<input class="input-text" type="file" name="news-image" id="news-image" value="" />
+		     		<div id="uploadimage"><img id="photo" width="150px" src="" /></div>
+             <?php if(isset($this->error_data['image'])) { ?>                        
+				    	<small class="error" style="margin-top:5px !important; width:252px !important;">Please Select your Image</small><br>
+				    	<?php } ?>
+		       		<br><strong><label>Link:</label></strong>
+		      		<input class="input-text" style="width:600px;" name="news-link" type="text" value="" />                   
+              <?php  if(isset($this->error_data['url_link'])) { ?>                        
+				    	<small class="error" style="margin-top:5px !important; width:252px !important;">Please Enter Url</small><br>
+				    	<?php } ?>
+				    	<Br>
+		      	</div>
+		      	<script>
+        	    function readURL(input,val) {
+				        if (input.files && input.files[0]) {
+						            var reader = new FileReader();
+						            
+						            reader.onload = function (e) {
+						                $(val).attr('src', e.target.result);
+						            }
+						            
+						            reader.readAsDataURL(input.files[0]);
+						        }
+						    }						    
+						    $("#news-image").change(function(){
+						        readURL(this,'#photo');
+						        document.getElementById("uploadimage").style.display="block";
+						    });
+						    $("#news-icon").change(function(){
+						        readURL(this,'#icon');
+						        document.getElementById("uploadicon").style.display="block";
+						    });		      		
+		      	</script>
+		    </div>
+		    <div class="row">
+	      		<input type="submit" class="medium radius green button" value="Add Content" />
+		    </div>
+		</form>  
+				</div>
+      <div class="gap" style="height:50px"></div>
+    </div>
+  </div>
+</section>

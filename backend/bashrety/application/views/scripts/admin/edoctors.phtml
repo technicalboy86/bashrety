@@ -1,0 +1,324 @@
+<?php echo $this->partial("_partials/siteheader.phtml", array('heading'=>'edoctors','js' => array('/js/admin-cms.js','/js/tiny_mce/jquery.tinymce.js')));?>
+<section class="section section-padding-large">
+  <div class="container">
+    <div class="row-fluid">
+      
+			<div class="tabset tabs_style1 clearfix">
+				<div class="panel tab-content" id="panel_dashboard">
+				
+					<h3><i class="icon-list"></i>E-Doctor Management</h3>
+					<!--<div style="float:right;"><?php echo $this->paginator; ?></div>	-->
+						<form class="nice">
+			<p>Question: What is your gender?</p>
+			<table style="width: 100%;">
+				<tbody>
+					<tr>
+						<td width="20%" style="vertical-align:top;" align="center">Male</td>
+						<td width="40%" style="vertical-align:top;" align="center">
+						<?php if(isset($this->edoctortips['gender-male'])) { ?>
+						<?php echo $this->edoctortips['gender-male']['tip'];?><br><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'gender-male'), null, true);?>">Edit Tip</a>&nbsp;|&nbsp;<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'delete-edoctortip', 'key' => 'gender-male'), null, true);?>">Delete Tip</a>
+						<?php } else { ?>
+						<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'gender-male'), null, true);?>">Add Tip</a>
+						<?php } ?></td>
+						<td width="40%" style="vertical-align:top;" align="center"><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'edoctorproduct', 'key' => 'gender-male'), null, true);?>">Products Detail</a></td>
+					</tr>
+					<tr>
+						<td width="20%" style="vertical-align:top;" align="center">Female</td>
+						<td width="40%" style="vertical-align:top;" align="center"><?php if(isset($this->edoctortips['gender-female'])) { ?>
+						<?php echo $this->edoctortips['gender-female']['tip']; ?><br><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'gender-female'), null, true);?>">Edit Tip</a>&nbsp;|&nbsp;<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'delete-edoctortip', 'key' => 'gender-female'), null, true);?>">Delete Tip</a>
+						<?php } else { ?>
+						<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'gender-female'), null, true);?>">Add Tip</a>
+						<?php } ?></td>
+						<td width="40%" style="vertical-align:top;" align="center"><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'edoctorproduct', 'key' => 'gender-female'), null, true);?>">Products Detail</a></td>
+					</tr>
+				</tbody>
+			</table><br>
+			<p>Question: How is your skin?</p>
+			<table style="width: 100%;">
+				<tbody>					
+					<tr>
+						<td width="20%" style="vertical-align:top;" align="center">1</td>
+						<td width="40%" style="vertical-align:top;" align="center"<?php if(isset($this->edoctortips['skin-1'])) { ?>
+						<?php echo $this->edoctortips['skin-1']['tip']; ?><br><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'skin-1'), null, true);?>">Edit Tip</a>&nbsp;|&nbsp;<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'delete-edoctortip', 'key' => 'skin-1'), null, true);?>">Delete Tip</a>
+						<?php } else { ?>
+						<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'skin-1'), null, true);?>">Add Tip</a>
+						<?php } ?></td>
+						<td width="40%" style="vertical-align:top;" align="center"><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'edoctorproduct', 'key' => 'skin-1'), null, true);?>">Products Detail</a></td>
+					</tr>
+					<tr>
+						<td width="20%" style="vertical-align:top;" align="center">2</td>
+						<td width="40%" style="vertical-align:top;" align="center"><?php if(isset($this->edoctortips['skin-2'])) { ?>
+						<?php echo $this->edoctortips['skin-2']['tip']; ?><br><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'skin-2'), null, true);?>">Edit Tip</a>&nbsp;|&nbsp;<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'delete-edoctortip', 'key' => 'skin-2'), null, true);?>">Delete Tip</a>
+						<?php } else { ?>
+						<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'skin-2'), null, true);?>">Add Tip</a>
+						<?php } ?></td>
+						<td width="40%" style="vertical-align:top;" align="center"><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'edoctorproduct', 'key' => 'skin-2'), null, true);?>">Products Detail</a></td>
+					</tr>
+					<tr>
+						<td width="20%" style="vertical-align:top;" align="center">3</td>
+						<td width="40%" style="vertical-align:top;" align="center"><?php if(isset($this->edoctortips['skin-3'])) { ?>
+						<?php echo $this->edoctortips['skin-3']['tip']; ?><br><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'skin-3'), null, true);?>">Edit Tip</a>&nbsp;|&nbsp;<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'delete-edoctortip', 'key' => 'skin-3'), null, true);?>">Delete Tip</a>
+						<?php } else { ?>
+						<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'skin-3'), null, true);?>">Add Tip</a>
+						<?php } ?></td>
+						<td width="40%" style="vertical-align:top;" align="center"><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'edoctorproduct', 'key' => 'skin-3'), null, true);?>">Products Detail</a></td>
+					</tr>
+					<tr>
+						<td width="20%" style="vertical-align:top;" align="center">4</td>
+						<td width="40%" style="vertical-align:top;" align="center"><?php if(isset($this->edoctortips['skin-4'])) { ?>
+						<?php echo $this->edoctortips['skin-4']['tip']; ?><br><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'skin-4'), null, true);?>">Edit Tip</a>&nbsp;|&nbsp;<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'delete-edoctortip', 'key' => 'skin-4'), null, true);?>">Delete Tip</a>
+						<?php } else { ?>
+						<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'skin-4'), null, true);?>">Add Tip</a>
+						<?php } ?></td>
+						<td width="40%" style="vertical-align:top;" align="center"><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'edoctorproduct', 'key' => 'skin-4'), null, true);?>">Products Detail</a></td>
+					</tr>
+					<tr>
+						<td width="20%" style="vertical-align:top;" align="center">5</td>
+						<td width="40%" style="vertical-align:top;" align="center"><?php if(isset($this->edoctortips['skin-5'])) { ?>
+						<?php echo $this->edoctortips['skin-5']['tip']; ?><br><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'skin-5'), null, true);?>">Edit Tip</a>&nbsp;|&nbsp;<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'delete-edoctortip', 'key' => 'skin-5'), null, true);?>">Delete Tip</a>
+						<?php } else { ?>
+						<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'skin-5'), null, true);?>">Add Tip</a>
+						<?php } ?></td>
+						<td width="40%" style="vertical-align:top;" align="center"><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'edoctorproduct', 'key' => 'skin-5'), null, true);?>">Products Detail</a></td>
+					</tr>
+					<tr>
+						<td width="20%" style="vertical-align:top;" align="center">6</td>
+						<td width="40%" style="vertical-align:top;" align="center"><?php if(isset($this->edoctortips['skin-6'])) { ?>
+						<?php echo $this->edoctortips['skin-6']['tip']; ?><br><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'skin-6'), null, true);?>">Edit Tip</a>&nbsp;|&nbsp;<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'delete-edoctortip', 'key' => 'skin-6'), null, true);?>">Delete Tip</a>
+						<?php } else { ?>
+						<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'skin-6'), null, true);?>">Add Tip</a>
+						<?php } ?></td>
+						<td width="40%" style="vertical-align:top;" align="center"><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'edoctorproduct', 'key' => 'skin-6'), null, true);?>">Products Detail</a></td>
+					</tr>
+				</tbody>
+			</table><br>
+			<p>Question: Do you have acne?</p>
+			<table style="width: 100%;">
+				<tbody>
+					<tr>
+						<td width="20%" style="vertical-align:top;" align="center">Black</td>
+						<td width="40%" style="vertical-align:top;" align="center"><?php if(isset($this->edoctortips['acne-black'])) { ?>
+						<?php echo $this->edoctortips['acne-black']['tip']; ?><br><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'acne-black'), null, true);?>">Edit Tip</a>&nbsp;|&nbsp;<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'delete-edoctortip', 'key' => 'acne-black'), null, true);?>">Delete Tip</a>
+						<?php } else { ?>
+						<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'acne-black'), null, true);?>">Add Tip</a>
+						<?php } ?></td>
+						<td width="40%" style="vertical-align:top;" align="center"><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'edoctorproduct', 'key' => 'acne-black'), null, true);?>">Products Detail</a></td>
+					</tr>
+					<tr>
+						<td width="20%" style="vertical-align:top;" align="center">White</td>
+						<td width="40%" style="vertical-align:top;" align="center"><?php if(isset($this->edoctortips['acne-white'])) { ?>
+						<?php echo $this->edoctortips['acne-white']['tip']; ?><br><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'acne-white'), null, true);?>">Edit Tip</a>&nbsp;|&nbsp;<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'delete-edoctortip', 'key' => 'acne-white'), null, true);?>">Delete Tip</a>
+						<?php } else { ?>
+						<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'acne-white'), null, true);?>">Add Tip</a>
+						<?php } ?></td>
+						<td width="40%" style="vertical-align:top;" align="center"><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'edoctorproduct', 'key' => 'acne-white'), null, true);?>">Products Detail</a></td>
+					</tr>
+					<tr>
+						<td width="20%" style="vertical-align:top;" align="center">Red</td>
+						<td width="40%" style="vertical-align:top;" align="center"><?php if(isset($this->edoctortips['acne-red'])) { ?>
+						<?php echo $this->edoctortips['acne-red']['tip']; ?><br><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'acne-red'), null, true);?>">Edit Tip</a>&nbsp;|&nbsp;<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'delete-edoctortip', 'key' => 'acne-red'), null, true);?>">Delete Tip</a>
+						<?php } else { ?>
+						<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'acne-red'), null, true);?>">Add Tip</a>
+						<?php } ?></td>
+						<td width="40%" style="vertical-align:top;" align="center"><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'edoctorproduct', 'key' => 'acne-red'), null, true);?>">Products Detail</a></td>
+					</tr>
+					<tr>
+						<td width="20%" style="vertical-align:top;" align="center">Big Red</td>
+						<td width="40%" style="vertical-align:top;" align="center"><?php if(isset($this->edoctortips['acne-big-red'])) { ?>
+						<?php echo $this->edoctortips['acne-big-red']['tip']; ?><br><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'acne-big-red'), null, true);?>">Edit Tip</a>&nbsp;|&nbsp;<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'delete-edoctortip', 'key' => 'acne-big-red'), null, true);?>">Delete Tip</a>
+						<?php } else { ?>
+						<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'acne-big-red'), null, true);?>">Add Tip</a>
+						<?php } ?></td>
+						<td width="40%" style="vertical-align:top;" align="center"><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'edoctorproduct', 'key' => 'acne-big-red'), null, true);?>">Products Detail</a></td>
+					</tr>
+				</tbody>
+			</table><br>
+			<p>Question: Do you have freckle?</p>
+			<table style="width: 100%;">
+				<tbody>
+					<tr>						
+						<td width="20%" style="vertical-align:top;" align="center">No</td>
+						<td width="40%" style="vertical-align:top;" align="center"><?php if(isset($this->edoctortips['freckle-no'])) { ?>
+						<?php echo $this->edoctortips['freckle-no']['tip']; ?><br><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'freckle-no'), null, true);?>">Edit Tip</a>&nbsp;|&nbsp;<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'delete-edoctortip', 'key' => 'freckle-no'), null, true);?>">Delete Tip</a>
+						<?php } else { ?>
+						<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'freckle-no'), null, true);?>">Add Tip</a>
+						<?php } ?></td>
+						<td width="30%" style="vertical-align:top;" align="center"><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'edoctorproduct', 'key' => 'freckle-no'), null, true);?>">Products Detail</a></td>
+					</tr>
+					<tr>						
+						<td width="20%" style="vertical-align:top;" align="center">Dark</td>
+						<td width="40%" style="vertical-align:top;" align="center"><?php if(isset($this->edoctortips['freckle-dark'])) { ?>
+						<?php echo $this->edoctortips['freckle-dark']['tip']; ?><br><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'freckle-dark'), null, true);?>">Edit Tip</a>&nbsp;|&nbsp;<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'delete-edoctortip', 'key' => 'freckle-dark'), null, true);?>">Delete Tip</a>
+						<?php } else { ?>
+						<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'freckle-dark'), null, true);?>">Add Tip</a>
+						<?php } ?></td>
+						<td width="40%" style="vertical-align:top;" align="center"><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'edoctorproduct', 'key' => 'freckle-dark'), null, true);?>">Products Detail</a></td>
+					</tr>
+					<tr>						
+						<td width="20%" style="vertical-align:top;" align="center">Freckle</td>
+						<td width="40%" style="vertical-align:top;" align="center"><?php if(isset($this->edoctortips['freckle-freckle'])) { ?>
+						<?php echo $this->edoctortips['freckle-freckle']['tip']; ?><br><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'freckle-freckle'), null, true);?>">Edit Tip</a>&nbsp;|&nbsp;<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'delete-edoctortip', 'key' => 'freckle-freckle'), null, true);?>">Delete Tip</a>
+						<?php } else { ?>
+						<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'freckle-freckle'), null, true);?>">Add Tip</a>
+						<?php } ?></td>
+						<td width="40%" style="vertical-align:top;" align="center"><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'edoctorproduct', 'key' => 'freckle-freckle'), null, true);?>">Products Detail</a></td>
+					</tr>
+					<tr>						
+						<td width="20%" style="vertical-align:top;" align="center">Melsama</td>
+						<td width="40%" style="vertical-align:top;" align="center"><?php if(isset($this->edoctortips['freckle-melsama'])) { ?>
+						<?php echo $this->edoctortips['freckle-melsama']['tip']; ?><br><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'freckle-melsama'), null, true);?>">Edit Tip</a>&nbsp;|&nbsp;<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'delete-edoctortip', 'key' => 'freckle-melsama'), null, true);?>">Delete Tip</a>
+						<?php } else { ?>
+						<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'freckle-melsama'), null, true);?>">Add Tip</a>
+						<?php } ?></td>
+						<td width="40%" style="vertical-align:top;" align="center"><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'edoctorproduct', 'key' => 'freckle-melsama'), null, true);?>">Products Detail</a></td>
+					</tr>
+				</tbody>
+			</table>
+			<p>Question: Choose your skin sensitivity.</p>
+			<table style="width: 100%;">
+				<tbody>
+					<tr>						
+						<td width="20%" style="vertical-align:top;" align="center">Yes</td>
+						<td width="40%" style="vertical-align:top;" align="center"><?php if(isset($this->edoctortips['sensitivity-yes'])) { ?>
+						<?php echo $this->edoctortips['sensitivity-yes']['tip']; ?><br><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'sensitivity-yes'), null, true);?>">Edit Tip</a>&nbsp;|&nbsp;<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'delete-edoctortip', 'key' => 'sensitivity-yes'), null, true);?>">Delete Tip</a>
+						<?php } else { ?>
+						<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'sensitivity-yes'), null, true);?>">Add Tip</a>
+						<?php } ?></td>
+						<td width="30%" style="vertical-align:top;" align="center"><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'edoctorproduct', 'key' => 'sensitivity-yes'), null, true);?>">Products Detail</a></td>
+					</tr>
+					<tr>						
+						<td width="20%" style="vertical-align:top;" align="center">No</td>
+						<td width="40%" style="vertical-align:top;" align="center"><?php if(isset($this->edoctortips['sensitivity-no'])) { ?>
+						<?php echo $this->edoctortips['sensitivity-no']['tip']; ?><br><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'sensitivity-no'), null, true);?>">Edit Tip</a>&nbsp;|&nbsp;<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'delete-edoctortip', 'key' => 'sensitivity-no'), null, true);?>">Delete Tip</a>
+						<?php } else { ?>
+						<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'sensitivity-no'), null, true);?>">Add Tip</a>
+						<?php } ?></td>
+						<td width="40%" style="vertical-align:top;" align="center"><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'edoctorproduct', 'key' => 'sensitivity-no'), null, true);?>">Products Detail</a></td>
+					</tr>
+				</tbody>
+			</table>
+			<p>Question: Choose your around eyes.</p>
+			<table style="width: 100%;">
+				<tbody>
+					<tr>						
+						<td width="20%" style="vertical-align:top;" align="center">None</td>
+						<td width="40%" style="vertical-align:top;" align="center"><?php if(isset($this->edoctortips['aroundeyes-none'])) { ?>
+						<?php echo $this->edoctortips['aroundeyes-none']['tip']; ?><br><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'aroundeyes-none'), null, true);?>">Edit Tip</a>&nbsp;|&nbsp;<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'delete-edoctortip', 'key' => 'aroundeyes-none'), null, true);?>">Delete Tip</a>
+						<?php } else { ?>
+						<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'aroundeyes-none'), null, true);?>">Add Tip</a>
+						<?php } ?></td>
+						<td width="30%" style="vertical-align:top;" align="center"><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'edoctorproduct', 'key' => 'aroundeyes-none'), null, true);?>">Products Detail</a></td>
+					</tr>
+					<tr>						
+						<td width="20%" style="vertical-align:top;" align="center">Dark</td>
+						<td width="40%" style="vertical-align:top;" align="center"><?php if(isset($this->edoctortips['aroundeyes-dark'])) { ?>
+						<?php echo $this->edoctortips['aroundeyes-dark']['tip']; ?><br><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'aroundeyes-dark'), null, true);?>">Edit Tip</a>&nbsp;|&nbsp;<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'delete-edoctortip', 'key' => 'aroundeyes-dark'), null, true);?>">Delete Tip</a>
+						<?php } else { ?>
+						<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'aroundeyes-dark'), null, true);?>">Add Tip</a>
+						<?php } ?></td>
+						<td width="40%" style="vertical-align:top;" align="center"><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'edoctorproduct', 'key' => 'aroundeyes-dark'), null, true);?>">Products Detail</a></td>
+					</tr>
+					<tr>						
+						<td width="20%" style="vertical-align:top;" align="center">Puffiness</td>
+						<td width="40%" style="vertical-align:top;" align="center"><?php if(isset($this->edoctortips['aroundeyes-puffiness'])) { ?>
+						<?php echo $this->edoctortips['aroundeyes-puffiness']['tip']; ?><br><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'aroundeyes-puffiness'), null, true);?>">Edit Tip</a>&nbsp;|&nbsp;<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'delete-edoctortip', 'key' => 'aroundeyes-puffiness'), null, true);?>">Delete Tip</a>
+						<?php } else { ?>
+						<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'aroundeyes-puffiness'), null, true);?>">Add Tip</a>
+						<?php } ?></td>
+						<td width="40%" style="vertical-align:top;" align="center"><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'edoctorproduct', 'key' => 'aroundeyes-puffiness'), null, true);?>">Products Detail</a></td>
+					</tr>
+				</tbody>
+			</table>
+			<p>Question: Choose your skin aging.</p>
+			<table style="width: 100%;">
+				<tbody>
+					<tr>						
+						<td width="20%" style="vertical-align:top;" align="center">None</td>
+						<td width="40%" style="vertical-align:top;" align="center"><?php if(isset($this->edoctortips['skinaging-none'])) { ?>
+						<?php echo $this->edoctortips['skinaging-none']['tip']; ?><br><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'skinaging-none'), null, true);?>">Edit Tip</a>&nbsp;|&nbsp;<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'delete-edoctortip', 'key' => 'skinaging-none'), null, true);?>">Delete Tip</a>
+						<?php } else { ?>
+						<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'skinaging-none'), null, true);?>">Add Tip</a>
+						<?php } ?></td>
+						<td width="30%" style="vertical-align:top;" align="center"><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'edoctorproduct', 'key' => 'skinaging-none'), null, true);?>">Products Detail</a></td>
+					</tr>
+					<tr>						
+						<td width="20%" style="vertical-align:top;" align="center">Medium</td>
+						<td width="40%" style="vertical-align:top;" align="center"><?php if(isset($this->edoctortips['skinaging-medium'])) { ?>
+						<?php echo $this->edoctortips['skinaging-medium']['tip']; ?><br><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'skinaging-medium'), null, true);?>">Edit Tip</a>&nbsp;|&nbsp;<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'delete-edoctortip', 'key' => 'skinaging-medium'), null, true);?>">Delete Tip</a>
+						<?php } else { ?>
+						<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'skinaging-medium'), null, true);?>">Add Tip</a>
+						<?php } ?></td>
+						<td width="40%" style="vertical-align:top;" align="center"><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'edoctorproduct', 'key' => 'skinaging-medium'), null, true);?>">Products Detail</a></td>
+					</tr>
+					<tr>						
+						<td width="20%" style="vertical-align:top;" align="center">Deep</td>
+						<td width="40%" style="vertical-align:top;" align="center"><?php if(isset($this->edoctortips['skinaging-deep'])) { ?>
+						<?php echo $this->edoctortips['skinaging-deep']['tip']; ?><br><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'skinaging-deep'), null, true);?>">Edit Tip</a>&nbsp;|&nbsp;<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'delete-edoctortip', 'key' => 'skinaging-deep'), null, true);?>">Delete Tip</a>
+						<?php } else { ?>
+						<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'skinaging-deep'), null, true);?>">Add Tip</a>
+						<?php } ?></td>
+						<td width="40%" style="vertical-align:top;" align="center"><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'edoctorproduct', 'key' => 'skinaging-deep'), null, true);?>">Products Detail</a></td>
+					</tr>
+				</tbody>
+			</table>
+			<p>Question: Choose your skin type.</p>
+			<table style="width: 100%;">
+				<tbody>
+					<tr>						
+						<td width="20%" style="vertical-align:top;" align="center">Dry</td>
+						<td width="40%" style="vertical-align:top;" align="center"><?php if(isset($this->edoctortips['skintype-dry'])) { ?>
+						<?php echo $this->edoctortips['skintype-dry']['tip']; ?><br><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'skintype-dry'), null, true);?>">Edit Tip</a>&nbsp;|&nbsp;<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'delete-edoctortip', 'key' => 'skintype-dry'), null, true);?>">Delete Tip</a>
+						<?php } else { ?>
+						<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'skintype-dry'), null, true);?>">Add Tip</a>
+						<?php } ?></td>
+						<td width="30%" style="vertical-align:top;" align="center"><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'edoctorproduct', 'key' => 'skintype-dry'), null, true);?>">Products Detail</a></td>
+					</tr>
+					<tr>						
+						<td width="20%" style="vertical-align:top;" align="center">Mixed</td>
+						<td width="40%" style="vertical-align:top;" align="center"><?php if(isset($this->edoctortips['skintype-mixed'])) { ?>
+						<?php echo $this->edoctortips['skintype-mixed']['tip']; ?><br><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'skintype-mixed'), null, true);?>">Edit Tip</a>&nbsp;|&nbsp;<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'delete-edoctortip', 'key' => 'skintype-mixed'), null, true);?>">Delete Tip</a>
+						<?php } else { ?>
+						<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'skintype-mixed'), null, true);?>">Add Tip</a>
+						<?php } ?></td>
+						<td width="40%" style="vertical-align:top;" align="center"><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'edoctorproduct', 'key' => 'skintype-mixed'), null, true);?>">Products Detail</a></td>
+					</tr>
+					<tr>						
+						<td width="20%" style="vertical-align:top;" align="center">Oily</td>
+						<td width="40%" style="vertical-align:top;" align="center"><?php if(isset($this->edoctortips['skintype-oily'])) { ?>
+						<?php echo $this->edoctortips['skintype-oily']['tip']; ?><br><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'skintype-oily'), null, true);?>">Edit Tip</a>&nbsp;|&nbsp;<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'delete-edoctortip', 'key' => 'skintype-oily'), null, true);?>">Delete Tip</a>
+						<?php } else { ?>
+						<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'skintype-oily'), null, true);?>">Add Tip</a>
+						<?php } ?></td>
+						<td width="40%" style="vertical-align:top;" align="center"><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'edoctorproduct', 'key' => 'skintype-oily'), null, true);?>">Products Detail</a></td>
+					</tr>
+				</tbody>
+			</table>
+			<p>Question: Wide pores and scars.</p>
+			<table style="width: 100%;">
+				<tbody>
+					<tr>						
+						<td width="20%" style="vertical-align:top;" align="center">Wide Pores</td>
+						<td width="40%" style="vertical-align:top;" align="center"><?php if(isset($this->edoctortips['pores-scars-pores'])) { ?>
+						<?php echo $this->edoctortips['pores-scars-pores']['tip']; ?><br><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'pores-scars-pores'), null, true);?>">Edit Tip</a>&nbsp;|&nbsp;<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'delete-edoctortip', 'key' => 'pores-scars-pores'), null, true);?>">Delete Tip</a>
+						<?php } else { ?>
+						<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'pores-scars-pores'), null, true);?>">Add Tip</a>
+						<?php } ?></td>
+						<td width="30%" style="vertical-align:top;" align="center"><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'edoctorproduct', 'key' => 'pores-scars-pores'), null, true);?>">Products Detail</a></td>
+					</tr>
+					<tr>						
+						<td width="20%" style="vertical-align:top;" align="center">Scars</td>
+						<td width="40%" style="vertical-align:top;" align="center"><?php if(isset($this->edoctortips['pores-scars-scars'])) { ?>
+						<?php echo $this->edoctortips['pores-scars-scars']['tip']; ?><br><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'pores-scars-scars'), null, true);?>">Edit Tip</a>&nbsp;|&nbsp;<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'delete-edoctortip', 'key' => 'pores-scars-scars'), null, true);?>">Delete Tip</a>
+						<?php } else { ?>
+						<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'add-edoctortip', 'key' => 'pores-scars-scars'), null, true);?>">Add Tip</a>
+						<?php } ?></td>
+						<td width="40%" style="vertical-align:top;" align="center"><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'edoctorproduct', 'key' => 'pores-scars-scars'), null, true);?>">Products Detail</a></td>
+					</tr>					
+				</tbody>
+			</table>
+		</form>        
+				</div>
+      <div class="gap" style="height:50px"></div>
+    </div>
+  </div>
+</section>

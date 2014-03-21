@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Bashrety</title>
+	<link rel="stylesheet" href="<?php echo $this->baseUrl(); ?>/css/cssverticalmenu.css" type="text/css" />
+	<link rel="stylesheet" href="<?php echo $this->baseUrl(); ?>/css/layout.css" type="text/css" />
+	<link rel="stylesheet" href="<?php echo $this->baseUrl(); ?>/css/main.css" type="text/css" />
+	<link rel="stylesheet" href="<?php echo $this->baseUrl(); ?>/css/shortcodes.css" type="text/css" />
+	<link rel="stylesheet" href="<?php echo $this->baseUrl(); ?>/css/icons.css" type="text/css" />	
+	<link rel="stylesheet" href="<?php echo $this->baseUrl(); ?>/css/original.css" type="text/css" />
+  <script src="<?php echo $this->baseUrl(); ?>/js/jquery.min.js"></script>  
+  <script src="<?php echo $this->baseUrl(); ?>/js/cssverticalmenu.js"></script>  
+	<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+   <?php 
+  if($this->js != null && is_array($this->js))
+  {
+  	foreach ($this->js as $row)
+  	{
+  		echo '<script type="text/javascript" src="'.$this->baseUrl().$row.'"></script>';
+  	}
+  }
+  
+  if($this->css != null && is_array($this->css))
+  {
+  	foreach ($this->css as $row)
+  	{
+  		echo '<link rel="stylesheet" href="'.$this->baseUrl().$row.'">';
+  	}
+  }
+  
+  ?>
+</head>  
+<body class="responsive">
+<?php if(Zend_Auth::getInstance()->hasIdentity()) { ?>
+	<div id="top_bar">
+	  <div class="container">
+	    <div class="row-fluid">
+	      <div class="row-fluid">
+	        <div class="logout-container">
+	          <div class="contact-info">Admin Panel | <a style="color:#fff;" href="<?php echo $this->url(array('controller' => 'auth', 'action' => 'logout'), null, true);?>">Logout</a></div>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
+	<div style="float:left; padding-left:20px; padding-top:25px;">
+		<ul id="verticalmenu" class="glossymenu">
+			<li><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'articles'), null, true);?>" <?php if($this->heading=='articles') echo "class='active'"; ?>>Article Management</a></li>
+			<li><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'products'), null, true);?>" <?php if($this->heading=='products') echo "class='active'"; ?>>Product Management</a></li>
+			<li><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'users'), null, true);?>" <?php if($this->heading=='users') echo "class='active'"; ?>>User Management</a></li>
+			<li><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'events'), null, true);?>" <?php if($this->heading=='events') echo "class='active'"; ?>>Events Manamgement</a></li>
+			<li><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'doctors'), null, true);?>" <?php if($this->heading=='doctors') echo "class='active'"; ?>>Doctor Listing Management</a></li>
+			<li><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'edoctors'), null, true);?>" <?php if($this->heading=='edoctors') echo "class='active'"; ?>>eDoctor Management</a></li>
+			<li><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'areas'), null, true);?>" <?php if($this->heading=='areas') echo "class='active'"; ?>>Area Management</a></li>
+			<li><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'clinicname'), null, true);?>" <?php if($this->heading=='clinicname') echo "class='active'"; ?>>Clinic Name Management</a></li>			
+		</ul>
+	</div>
+<?php } ?>
+        

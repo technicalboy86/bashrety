@@ -1,0 +1,128 @@
+
+/* Table of Content
+ *	- General
+ *	- Form
+ *	- Logout Container
+ *	- Login
+ *	- Dashboard
+ */
+ 
+/*------------------------------------------------*/
+/*  general 
+/*------------------------------------------------*/
+
+.red	{
+	color: #c00;
+}
+
+
+
+
+/*------------------------------------------------*/
+/*  Form 
+/*------------------------------------------------*/
+
+form h6	{
+	margin-bottom: 5px;
+}
+form h6 span	{
+	font-weight: normal;
+}
+form input[type=radio], form input[type=checkbox]	{
+	margin-right: 1em;
+}
+
+form .terms-wrap	{
+	background: #f6f6f6;
+	padding: 10px !important;
+}
+
+
+
+/*------------------------------------------------*/
+/*  Logout Container 
+/*------------------------------------------------*/
+
+.logout-container	{
+	background: #2D5F82;
+	color: #e3e3e3;
+	padding-right: 30px;
+	text-align: right;
+}
+.logout-container span, .logout-container span a	{
+	color: #e3e3e3 !important;
+}
+.logout-container span a:hover	{
+	color: #fff !important;
+}
+
+
+
+/*------------------------------------------------*/
+/*  Login 
+/*------------------------------------------------*/
+
+.login-box	{
+	box-shadow: 0 0 4px rgba(0,0,0,0.4);
+	-moz-box-shadow: 0 0 4px rgba(0,0,0,0.4);
+	-webkit-box-shadow: 0 0 4px rgba(0,0,0,0.4);
+	-ms-box-shadow: 0 0 4px rgba(0,0,0,0.4);
+	border-radius: 6px;
+	-moz-border-radius: 6px;
+	-ms-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	padding: 40px 40px 20px !important;
+	margin-bottom: 50px;
+}
+
+
+
+/*------------------------------------------------*/
+/*  Dashboard 
+/*------------------------------------------------*/
+
+.panel h3	{
+	margin: 0 0 20px;
+	position: relative;
+	padding-left: 40px;
+}
+.panel h3 i	{
+	color: #2d5f82;
+	font-size: 1.2em;
+	line-height: 1.5;
+	top: -6px;
+	position: absolute;
+	left: 0;
+}
+
+
+/* Dashboard */
+.panel table	{
+	border: solid 1px #ccc;
+	border-collapse: collapse;
+	margin: 0 0 30px;
+	width: 100%;
+}
+.panel table th, .panel table td	{
+	border: solid 1px #ccc;
+	border-collapse: collapse;
+	padding: 8px 10px;
+}
+.panel table th	{
+	background: #2d5f82;
+	color: #fff;
+}
+
+
+/* Account */
+.panel .profile_photo	{
+/*	border: solid 1px #ccc;
+	margin: 0 0 30px;*/
+	border-radius:5px;
+	width: 200px;
+}
+
+.panel .profile_photo .photo {
+	border-radius: 5px;
+	border: 3px solid #ccc;
+}
